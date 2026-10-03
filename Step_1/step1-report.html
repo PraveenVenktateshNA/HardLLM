@@ -1,0 +1,1297 @@
+<title>HardLLM Step 1 — Reconstruction &amp; Repair Report</title>
+
+<style>
+  :root {
+    --ground:      #FAFBFC;
+    --surface:     #FFFFFF;
+    --surface-alt: #F1F4F7;
+    --ink:         #16212B;
+    --ink-soft:    #33454F;
+    --muted:       #5C6E7C;
+    --rule:        #DDE4EA;
+    --rule-strong: #C3CFD8;
+    --accent:      #0E6F80;
+    --accent-soft: #E2F1F3;
+    --fatal:       #A93B2E;
+    --fatal-soft:  #F8E7E4;
+    --ok:          #2A7355;
+    --ok-soft:     #E2F2EA;
+    --risk:        #8A6212;
+    --risk-soft:   #F8EEDA;
+
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground:      #10161B;
+      --surface:     #171F26;
+      --surface-alt: #1D272F;
+      --ink:         #DDE6ED;
+      --ink-soft:    #B9C7D2;
+      --muted:       #8DA0AE;
+      --rule:        #27333C;
+      --rule-strong: #3A4A56;
+      --accent:      #45B4C6;
+      --accent-soft: #17323A;
+      --fatal:       #E58274;
+      --fatal-soft:  #35201D;
+      --ok:          #5BB98D;
+      --ok-soft:     #162E25;
+      --risk:        #D2A445;
+      --risk-soft:   #2E2515;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #10161B;
+    --surface:     #171F26;
+    --surface-alt: #1D272F;
+    --ink:         #DDE6ED;
+    --ink-soft:    #B9C7D2;
+    --muted:       #8DA0AE;
+    --rule:        #27333C;
+    --rule-strong: #3A4A56;
+    --accent:      #45B4C6;
+    --accent-soft: #17323A;
+    --fatal:       #E58274;
+    --fatal-soft:  #35201D;
+    --ok:          #5BB98D;
+    --ok-soft:     #162E25;
+    --risk:        #D2A445;
+    --risk-soft:   #2E2515;
+  }
+
+  :root[data-theme="light"] {
+    --ground:      #FAFBFC;
+    --surface:     #FFFFFF;
+    --surface-alt: #F1F4F7;
+    --ink:         #16212B;
+    --ink-soft:    #33454F;
+    --muted:       #5C6E7C;
+    --rule:        #DDE4EA;
+    --rule-strong: #C3CFD8;
+    --accent:      #0E6F80;
+    --accent-soft: #E2F1F3;
+    --fatal:       #A93B2E;
+    --fatal-soft:  #F8E7E4;
+    --ok:          #2A7355;
+    --ok-soft:     #E2F2EA;
+    --risk:        #8A6212;
+    --risk-soft:   #F8EEDA;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .shell {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px 120px;
+  }
+
+  @media (min-width: 1040px) {
+    .shell {
+      grid-template-columns: 216px minmax(0, 1fr);
+      gap: 56px;
+      padding: 0 32px 140px;
+    }
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    grid-column: 1 / -1;
+    padding: 64px 0 40px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 48px;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .eyebrow .sep { color: var(--rule-strong); }
+
+  h1 {
+    font-size: clamp(30px, 4.6vw, 46px);
+    line-height: 1.1;
+    letter-spacing: -0.022em;
+    font-weight: 640;
+    margin: 0 0 20px;
+    text-wrap: balance;
+    max-width: 20ch;
+  }
+
+  .standfirst {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin: 0 0 32px;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .meta-cell {
+    background: var(--surface);
+    padding: 14px 16px;
+  }
+
+  .meta-cell dt {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 6px;
+  }
+
+  .meta-cell dd {
+    margin: 0;
+    font-size: 14.5px;
+    font-weight: 560;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- side rail ---------- */
+
+  .rail { display: none; }
+
+  @media (min-width: 1040px) {
+    .rail {
+      display: block;
+      align-self: start;
+      position: sticky;
+      top: 32px;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      line-height: 1.5;
+    }
+    .rail h2 {
+      font-size: 10.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 14px;
+      font-weight: 500;
+    }
+    .rail ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      counter-reset: rail;
+    }
+    .rail a {
+      display: flex;
+      gap: 9px;
+      padding: 5px 8px 5px 0;
+      color: var(--muted);
+      text-decoration: none;
+      border-radius: 2px;
+    }
+    .rail a:hover { color: var(--accent); }
+    .rail a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .rail a .n {
+      color: var(--rule-strong);
+      font-variant-numeric: tabular-nums;
+      flex: none;
+    }
+  }
+
+  /* ---------- sections ---------- */
+
+  main { min-width: 0; }
+
+  section {
+    padding-top: 8px;
+    margin-bottom: 60px;
+    scroll-margin-top: 24px;
+  }
+
+  h2 {
+    font-size: 13px;
+    font-family: var(--mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0 0 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+  }
+
+  h2 .num {
+    color: var(--rule-strong);
+    font-variant-numeric: tabular-nums;
+  }
+
+  h3 {
+    font-size: 20px;
+    letter-spacing: -0.012em;
+    font-weight: 620;
+    margin: 32px 0 12px;
+    text-wrap: balance;
+  }
+
+  h4 {
+    font-size: 15.5px;
+    font-weight: 620;
+    margin: 26px 0 8px;
+    color: var(--ink);
+  }
+
+  p { margin: 0 0 16px; max-width: 68ch; }
+  main > section > p:first-of-type { margin-top: 20px; }
+
+  ul, ol { max-width: 68ch; padding-left: 22px; margin: 0 0 16px; }
+  li { margin-bottom: 8px; }
+  li > strong { font-weight: 620; }
+
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.875em;
+    background: var(--surface-alt);
+    padding: 0.13em 0.36em;
+    border-radius: 2px;
+    border: 1px solid var(--rule);
+    word-break: break-word;
+  }
+
+  /* ---------- chips ---------- */
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 2.5px 7px;
+    border-radius: 2px;
+    white-space: nowrap;
+    border: 1px solid transparent;
+  }
+  .chip.fatal { color: var(--fatal); background: var(--fatal-soft); border-color: color-mix(in srgb, var(--fatal) 26%, transparent); }
+  .chip.ok    { color: var(--ok);    background: var(--ok-soft);    border-color: color-mix(in srgb, var(--ok) 26%, transparent); }
+  .chip.risk  { color: var(--risk);  background: var(--risk-soft);  border-color: color-mix(in srgb, var(--risk) 26%, transparent); }
+  .chip.acc   { color: var(--accent);background: var(--accent-soft);border-color: color-mix(in srgb, var(--accent) 26%, transparent); }
+
+  /* ---------- tables ---------- */
+
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    margin: 0 0 20px;
+    background: var(--surface);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 540px;
+  }
+
+  th {
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--rule-strong);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  td.mono, th.mono { font-family: var(--mono); font-size: 12.5px; }
+  td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .rec td { background: var(--accent-soft); }
+
+  /* ---------- code + diff ---------- */
+
+  pre {
+    font-family: var(--mono);
+    font-size: 12.7px;
+    line-height: 1.62;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 15px 17px;
+    overflow-x: auto;
+    margin: 0 0 20px;
+    tab-size: 2;
+  }
+
+  pre .cm { color: var(--muted); }
+  pre .add { color: var(--ok); display: block; }
+  pre .del { color: var(--fatal); display: block; }
+  pre .hl  { color: var(--accent); }
+
+  .filename {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    background: var(--surface-alt);
+    border: 1px solid var(--rule);
+    border-bottom: none;
+    border-radius: 3px 3px 0 0;
+    padding: 7px 14px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .filename + pre { border-radius: 0 0 3px 3px; }
+
+  /* ---------- callout ---------- */
+
+  .note {
+    border: 1px solid var(--rule);
+    border-left: 2px solid var(--accent);
+    background: var(--surface);
+    padding: 16px 18px;
+    border-radius: 0 3px 3px 0;
+    margin: 0 0 20px;
+    max-width: 68ch;
+  }
+  .note.warn { border-left-color: var(--fatal); }
+  .note.caution { border-left-color: var(--risk); }
+  .note > :last-child { margin-bottom: 0; }
+  .note .label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 7px;
+  }
+  .note.warn .label { color: var(--fatal); }
+  .note.caution .label { color: var(--risk); }
+
+  /* ---------- figures ---------- */
+
+  figure {
+    margin: 26px 0 28px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--surface);
+    overflow: hidden;
+  }
+
+  .fig-scroll { overflow-x: auto; padding: 24px 20px 8px; }
+
+  figure svg { max-width: 100%; height: auto; display: block; margin: 0 auto; min-width: 620px; }
+
+  figcaption {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 12px 20px 16px;
+    border-top: 1px solid var(--rule);
+    background: var(--surface-alt);
+    line-height: 1.55;
+  }
+
+  svg text { font-family: var(--mono); fill: currentColor; }
+  svg .box { fill: none; stroke: currentColor; stroke-width: 1.25; opacity: 0.55; }
+  svg .box-acc { fill: none; stroke: var(--accent); stroke-width: 1.6; }
+  svg .flow { stroke: currentColor; stroke-width: 1.25; opacity: 0.6; fill: none; }
+  svg .flow-acc { stroke: var(--accent); stroke-width: 1.5; fill: none; }
+  svg .t-title { font-size: 12.5px; font-weight: 600; }
+  svg .t-sub { font-size: 10.5px; opacity: 0.68; }
+  svg .t-edge { font-size: 10px; opacity: 0.72; }
+  svg .t-fatal { font-size: 10px; fill: var(--fatal); font-weight: 600; }
+  svg .t-acc { font-size: 10px; fill: var(--accent); font-weight: 600; }
+  svg .arrowhead { fill: currentColor; opacity: 0.6; }
+  svg .arrowhead-acc { fill: var(--accent); }
+
+  /* ---------- runbook steps ---------- */
+
+  .steps { counter-reset: step -1; list-style: none; padding: 0; max-width: none; }
+
+  .step {
+    counter-increment: step;
+    border-top: 1px solid var(--rule);
+    padding: 26px 0 6px;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .step:first-child { border-top: none; }
+
+  @media (min-width: 720px) {
+    .step { grid-template-columns: 76px minmax(0, 1fr); gap: 22px; }
+  }
+
+  .step-n {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    padding-top: 4px;
+  }
+  .step-n::before { content: "STEP " counter(step); }
+
+  .step-body { min-width: 0; }
+  .step-body > h3 { margin-top: 0; }
+  .step-body > :last-child { margin-bottom: 18px; }
+
+  /* ---------- verdict split ---------- */
+
+  .split {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  @media (min-width: 760px) { .split { grid-template-columns: 1fr 1fr; } }
+
+  .panel {
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--surface);
+    padding: 18px 20px;
+  }
+  .panel h4 { margin-top: 0; display: flex; align-items: center; gap: 9px; }
+  .panel ul { padding-left: 18px; margin-bottom: 0; }
+  .panel li { font-size: 14.5px; }
+  .panel > :last-child { margin-bottom: 0; }
+
+  footer {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--rule);
+    padding-top: 22px;
+    margin-top: 16px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+
+<div class="shell">
+
+  <header class="masthead">
+    <p class="eyebrow">
+      <span>HardLLM</span><span class="sep">/</span><span>Step 1</span><span class="sep">/</span>
+      <span>Training Retrieval Model via Document Index</span>
+    </p>
+    <h1>Reconstruction &amp; Repair Report</h1>
+    <p class="standfirst">
+      One file was missing and four defects blocked execution. This records what was rebuilt,
+      how its behaviour was derived from the surviving call sites, what was actually verified,
+      and how to run the step on GCP.
+    </p>
+    <dl class="meta-grid">
+      <div class="meta-cell"><dt>Scope</dt><dd>Step 1 only</dd></div>
+      <div class="meta-cell"><dt>Reconstructed</dt><dd>1 file</dd></div>
+      <div class="meta-cell"><dt>Repaired</dt><dd>4 files</dd></div>
+      <div class="meta-cell"><dt>Status</dt><dd>Not yet run</dd></div>
+      <div class="meta-cell"><dt>Target</dt><dd>GCP A100 40&nbsp;GB</dd></div>
+    </dl>
+  </header>
+
+  <nav class="rail" aria-label="Contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#what-was-wrong"><span class="n">01</span><span>What was wrong</span></a></li>
+      <li><a href="#pipeline"><span class="n">02</span><span>Where it broke</span></a></li>
+      <li><a href="#reconstruction"><span class="n">03</span><span>The reconstruction</span></a></li>
+      <li><a href="#repairs"><span class="n">04</span><span>The four repairs</span></a></li>
+      <li><a href="#verification"><span class="n">05</span><span>Verification</span></a></li>
+      <li><a href="#runbook"><span class="n">06</span><span>GCP runbook</span></a></li>
+      <li><a href="#outputs"><span class="n">07</span><span>What you get</span></a></li>
+      <li><a href="#risks"><span class="n">08</span><span>Remaining risks</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <!-- ================= 01 ================= -->
+    <section id="what-was-wrong">
+      <h2><span class="num">01</span><span>What was wrong</span></h2>
+
+      <p>
+        Step 1 could not run at all. Five distinct blockers, in the order execution would have
+        hit them:
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:1%">#</th>
+              <th class="mono">File</th>
+              <th>Problem</th>
+              <th style="width:1%">Severity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num">1</td>
+              <td class="mono">trainer.py</td>
+              <td><strong>File absent.</strong> <code>train_retrival_model.py:14</code> imports <code>DSITrainer</code> and <code>DocTqueryTrainer</code> from it</td>
+              <td><span class="chip fatal">Fatal</span></td>
+            </tr>
+            <tr>
+              <td class="num">2</td>
+              <td class="mono">cluster_sst2.py:53</td>
+              <td><code>new_data.append(entry)</code> sat <strong>outside</strong> the <code>for</code> loop</td>
+              <td><span class="chip fatal">Silent</span></td>
+            </tr>
+            <tr>
+              <td class="num">3</td>
+              <td class="mono">download_data.py:12</td>
+              <td><code>map_amazon_label</code> returned <code>None</code> for labels 0/1/2</td>
+              <td><span class="chip fatal">Fatal</span></td>
+            </tr>
+            <tr>
+              <td class="num">4</td>
+              <td class="mono">data.py:20</td>
+              <td><code>ignore_verifications=</code> was removed from <code>load_dataset</code> in modern <code>datasets</code></td>
+              <td><span class="chip fatal">Fatal</span></td>
+            </tr>
+            <tr>
+              <td class="num">5</td>
+              <td class="mono">train_retrival_model.py</td>
+              <td>Hard <code>import wandb</code> plus an unconditional <code>wandb.login()</code></td>
+              <td><span class="chip risk">Blocks</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Why #2 is the dangerous one</span>
+        <p>
+          It fails <em>silently</em>. The script prints its success message and exits 0, having
+          written a single-line <code>sst2_with_clusters.jsonl</code>. Every downstream step then
+          trains on one example. On a paid GPU box this would have looked like a mysterious
+          convergence failure discovered hours into the run.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= 02 ================= -->
+    <section id="pipeline">
+      <h2><span class="num">02</span><span>Where it broke</span></h2>
+
+      <p>
+        Step 1 turns a public corpus into a trained model that maps any sentence to a document
+        index. Two of the five blockers sat directly on that chain — one severed the data, one
+        removed the trainer entirely.
+      </p>
+
+      <figure>
+        <div class="fig-scroll">
+          <svg viewBox="0 0 1010 250" role="img"
+               aria-label="Step 1 pipeline: public corpus is embedded and reduced, clustered into 2,336 document indices, used to supervise mT5-Large through DSITrainer, producing a retrieval model. The clustering stage was severed by an append bug and the trainer file was absent.">
+            <defs>
+              <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5"
+                      markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" class="arrowhead" />
+              </marker>
+            </defs>
+
+            <!-- boxes -->
+            <rect class="box" x="5"   y="62" width="160" height="66" rx="2" />
+            <text class="t-title" x="85"  y="90"  text-anchor="middle">Public corpus</text>
+            <text class="t-sub"   x="85"  y="108" text-anchor="middle">233,675 rows</text>
+
+            <rect class="box" x="215" y="62" width="160" height="66" rx="2" />
+            <text class="t-title" x="295" y="90"  text-anchor="middle">Embed + reduce</text>
+            <text class="t-sub"   x="295" y="108" text-anchor="middle">MiniLM 384d → 48d</text>
+
+            <rect class="box" x="425" y="62" width="160" height="66" rx="2" />
+            <text class="t-title" x="505" y="90"  text-anchor="middle">Cluster</text>
+            <text class="t-sub"   x="505" y="108" text-anchor="middle">2,336 doc indices</text>
+
+            <rect class="box-acc" x="635" y="62" width="160" height="66" rx="2" />
+            <text class="t-title" x="715" y="90"  text-anchor="middle">mT5-Large</text>
+            <text class="t-sub"   x="715" y="108" text-anchor="middle">DSITrainer</text>
+
+            <rect class="box" x="845" y="62" width="160" height="66" rx="2" />
+            <text class="t-title" x="925" y="90"  text-anchor="middle">Retrieval model</text>
+            <text class="t-sub"   x="925" y="108" text-anchor="middle">→ Step 2</text>
+
+            <!-- flow -->
+            <line class="flow" x1="165" y1="95" x2="209" y2="95" marker-end="url(#ah)" />
+            <text class="t-edge" x="187" y="86" text-anchor="middle">encode</text>
+
+            <line class="flow" x1="375" y1="95" x2="419" y2="95" marker-end="url(#ah)" />
+            <text class="t-edge" x="397" y="86" text-anchor="middle">assign k</text>
+
+            <line class="flow" x1="585" y1="95" x2="629" y2="95" marker-end="url(#ah)" />
+            <text class="t-edge" x="607" y="86" text-anchor="middle">supervise</text>
+
+            <line class="flow" x1="795" y1="95" x2="839" y2="95" marker-end="url(#ah)" />
+            <text class="t-edge" x="817" y="86" text-anchor="middle">140k steps</text>
+
+            <!-- failure annotations -->
+            <line class="flow" x1="505" y1="128" x2="505" y2="160" stroke-dasharray="3 3" />
+            <text class="t-fatal" x="505" y="177" text-anchor="middle">cluster_sst2.py — wrote 1 of 233,675 rows</text>
+            <text class="t-sub"   x="505" y="194" text-anchor="middle">append outside the loop · repaired</text>
+
+            <line class="flow-acc" x1="715" y1="128" x2="715" y2="160" stroke-dasharray="3 3" />
+            <text class="t-acc" x="715" y="177" text-anchor="middle">trainer.py — file absent</text>
+            <text class="t-sub" x="715" y="194" text-anchor="middle">reconstructed</text>
+
+            <text class="t-sub" x="85" y="177" text-anchor="middle">download_data.py</text>
+            <text class="t-sub" x="85" y="194" text-anchor="middle">label map · repaired</text>
+          </svg>
+        </div>
+        <figcaption>
+          The Step 1 chain, with the two blockers that sat directly on it. The clustering stage
+          emitted one row instead of 233,675; the training stage had no trainer to import.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- ================= 03 ================= -->
+    <section id="reconstruction">
+      <h2><span class="num">03</span><span>The reconstruction — trainer.py</span></h2>
+
+      <p>
+        This is the substantive piece of work, so the derivation is worth recording.
+        <code>trainer.py</code> was <strong>not guessed</strong>. Its required behaviour is almost
+        fully pinned by two call sites that <em>do</em> ship in the repo, which together act as an
+        executable specification.
+      </p>
+
+      <figure>
+        <div class="fig-scroll">
+          <svg viewBox="0 0 900 300" role="img"
+               aria-label="Two surviving call sites determine the reconstructed prediction_step: the constructor call fixes it as a Trainer subclass with two extra keyword arguments, and make_compute_metrics fixes the output tensor shapes.">
+            <defs>
+              <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5"
+                      markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" class="arrowhead" />
+              </marker>
+              <marker id="ah2a" viewBox="0 0 10 10" refX="9" refY="5"
+                      markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" class="arrowhead-acc" />
+              </marker>
+            </defs>
+
+            <text class="t-sub" x="20" y="24">SURVIVING CALL SITES</text>
+
+            <rect class="box" x="20" y="38" width="264" height="72" rx="2" />
+            <text class="t-title" x="36" y="63">DSITrainer( ... )</text>
+            <text class="t-sub"   x="36" y="81">+ restrict_decode_vocab</text>
+            <text class="t-sub"   x="36" y="97">+ id_max_length</text>
+
+            <rect class="box" x="20" y="188" width="264" height="72" rx="2" />
+            <text class="t-title" x="36" y="213">make_compute_metrics</text>
+            <text class="t-sub"   x="36" y="231">batch_decode(beams) / decode(label)</text>
+            <text class="t-sub"   x="36" y="247">hits = ...[:10]</text>
+
+            <!-- convergence -->
+            <path class="flow" d="M 284 74 L 340 74 L 340 132 L 386 132" marker-end="url(#ah2)" />
+            <text class="t-edge" x="346" y="66">Trainer subclass, 2 extra kwargs</text>
+
+            <path class="flow" d="M 284 224 L 340 224 L 340 166 L 386 166" marker-end="url(#ah2)" />
+            <text class="t-edge" x="346" y="243">ranked beam list per example</text>
+
+            <rect class="box-acc" x="392" y="112" width="188" height="76" rx="2" />
+            <text class="t-title" x="486" y="140" text-anchor="middle">prediction_step</text>
+            <text class="t-sub"   x="486" y="158" text-anchor="middle">constrained beam search</text>
+            <text class="t-sub"   x="486" y="174" text-anchor="middle">reshape · pad · unmask</text>
+
+            <line class="flow-acc" x1="580" y1="150" x2="644" y2="150" marker-end="url(#ah2a)" />
+            <text class="t-edge" x="612" y="141" text-anchor="middle">emits</text>
+
+            <rect class="box" x="650" y="112" width="230" height="76" rx="2" />
+            <text class="t-sub" x="666" y="138">predictions</text>
+            <text class="t-sub" x="666" y="156">(N, 20, id_max_length)</text>
+            <text class="t-sub" x="666" y="176">labels  (N, id_max_length)</text>
+
+            <text class="t-sub" x="650" y="24">FORCED OUTPUT CONTRACT</text>
+          </svg>
+        </div>
+        <figcaption>
+          The shape contract is not a design choice — it is forced. Because
+          <code>compute_metrics</code> calls <code>batch_decode</code> per example but
+          <code>decode</code> per label, the predictions axis must carry a ranked beam list.
+        </figcaption>
+      </figure>
+
+      <h3>Constraint A — the constructor</h3>
+      <p>From <code>train_retrival_model.py:127-140</code>:</p>
+
+      <div class="filename"><span>Step_1/train_retrival_model.py</span><span>lines 127–140</span></div>
+      <pre>trainer = DSITrainer(
+    model=model, tokenizer=tokenizer, args=training_args,
+    train_dataset=train_dataset, eval_dataset=valid_dataset,
+    data_collator=IndexingCollator(tokenizer, padding='longest'),
+    compute_metrics=make_compute_metrics(fast_tokenizer, train_dataset.valid_ids),
+    <span class="hl">restrict_decode_vocab=restrict_decode_vocab,</span>   <span class="cm"># &lt;-- non-standard</span>
+    <span class="hl">id_max_length=run_args.id_max_length,</span>          <span class="cm"># &lt;-- non-standard</span>
+)</pre>
+
+      <p>
+        Everything except the last two arguments is stock <code>transformers.Trainer</code>. So
+        <code>DSITrainer</code> is a <code>Trainer</code> subclass taking exactly two extra
+        keyword arguments.
+      </p>
+
+      <h3>Constraint B — the output shapes</h3>
+      <p>From <code>make_compute_metrics</code> at <code>train_retrival_model.py:47-68</code>:</p>
+
+      <div class="filename"><span>Step_1/train_retrival_model.py</span><span>lines 47–68</span></div>
+      <pre>for beams, label in zip(eval_preds.predictions, eval_preds.label_ids):
+    rank_list = tokenizer.<span class="hl">batch_decode</span>(beams, skip_special_tokens=True)
+    label_id  = tokenizer.<span class="hl">decode</span>(label, skip_special_tokens=True)
+    hits = np.where(np.array(filtered_rank_list)<span class="hl">[:10]</span> == label_id)[0]</pre>
+
+      <p>
+        <code>batch_decode(beams)</code> means each element of <code>predictions</code> is itself a
+        <em>batch of sequences</em> — a ranked beam list. <code>decode(label)</code> means each
+        element of <code>label_ids</code> is a single sequence. The <code>[:10]</code> slice with
+        Hits@1 / Hits@10 tells us the beam list is ranked best-first and at least ten deep. That
+        fixes the shapes exactly.
+      </p>
+
+      <h3>Constraint C — decoding must be constrained</h3>
+      <p>
+        <code>restrict_decode_vocab</code> is built at <code>train_retrival_model.py:105-118</code>
+        as the set of integer-only token ids, then passed in. It can only be consumed by
+        <code>generate(prefix_allowed_tokens_fn=...)</code>. This is the standard Differentiable
+        Search Index mechanism: the model must emit a valid cluster id, never free-form text.
+      </p>
+
+      <h3>What was implemented</h3>
+      <p><code>DSITrainer</code> overrides exactly two methods, plus one helper:</p>
+      <ul>
+        <li><strong><code>compute_loss</code></strong> — plain seq2seq cross-entropy from the model's own forward pass. Training the index is ordinary teacher-forced seq2seq; nothing exotic.</li>
+        <li><strong><code>prediction_step</code></strong> — where DSI differs. Rather than scoring logits it runs constrained beam search (20 beams, 20 returned sequences), reshapes <code>generate()</code>'s flat <code>(batch × beams, len)</code> output into <code>(batch, beams, len)</code>, right-pads to <code>id_max_length</code>, and returns <code>(None, beams, labels)</code>.</li>
+        <li><strong><code>_pad_to_id_max_length</code></strong> — not cosmetic. <code>Trainer</code> concatenates per-batch predictions into one array at the end of evaluation, so every batch must agree on the final axis or the concatenation throws.</li>
+      </ul>
+
+      <h3>Three deliberate divergences</h3>
+      <p>
+        Places where I did <em>not</em> reproduce the obvious implementation. Flagged so they can be
+        reviewed rather than trusted blindly.
+      </p>
+
+      <div class="note">
+        <span class="label">01 · <code>-100</code> is stripped from labels before return</span>
+        <p>
+          <code>IndexingCollator</code> (<code>data.py:59</code>) masks label padding with
+          <code>-100</code> for the loss function. But <code>compute_metrics</code> calls
+          <code>tokenizer.decode(label)</code> on those same labels, and decoding a negative token
+          id raises <code>OverflowError</code> on current tokenizers. So
+          <code>prediction_step</code> restores the real <code>pad_token_id</code> first.
+          <strong>Without this, evaluation crashes the first time it runs</strong> — which at
+          <code>--eval_steps 10000</code> means hours into training.
+        </p>
+      </div>
+
+      <div class="note">
+        <span class="label">02 · <code>compute_loss</code> accepts <code>**kwargs</code></span>
+        <p>
+          transformers ≥ 4.46 passes <code>num_items_in_batch</code> for gradient-accumulation loss
+          scaling. A fixed four-argument signature raises <code>TypeError</code> on those versions.
+        </p>
+      </div>
+
+      <div class="note">
+        <span class="label">03 · <code>tokenizer=</code> is remapped to <code>processing_class=</code></span>
+        <p>
+          transformers 4.46 renamed this <code>Trainer</code> argument and 5.x drops the old name.
+          Rather than edit the call site, <code>_normalise_trainer_kwargs</code> inspects the
+          installed <code>Trainer.__init__</code> signature and remaps if required. This keeps
+          <code>train_retrival_model.py</code> untouched and makes the module version-portable.
+        </p>
+      </div>
+
+      <div class="note caution">
+        <span class="label">Not on the execution path</span>
+        <p>
+          <code>DocTqueryTrainer</code> is imported by <code>train_retrival_model.py</code> but
+          <strong>never instantiated</strong> — HardLLM uses the clustered-index arm, not the
+          query-generation arm. It is implemented faithfully so the import resolves and the variant
+          stays available, but nothing in Step 1 calls it.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= 04 ================= -->
+    <section id="repairs">
+      <h2><span class="num">04</span><span>The four repairs</span></h2>
+
+      <p>
+        All minimal and surgical. No refactoring, no reformatting, no behavioural change beyond the
+        defect itself.
+      </p>
+
+      <div class="filename"><span>cluster_sst2.py</span><span><span class="chip fatal">Silent data loss</span></span></div>
+      <pre> for idx, label in enumerate(labels):
+     entry = train_data[idx].copy()
+<span class="del">-    entry['text_id'] = int(label)</span>
+<span class="del">-new_data.append(entry)</span>
+<span class="add">+    entry['text_id'] = int(label)</span>
+<span class="add">+    new_data.append(entry)</span></pre>
+
+      <div class="filename"><span>download_data.py</span><span><span class="chip fatal">Returns None</span></span></div>
+      <pre>     elif example['label'] in [3, 4]:
+         example['label'] = 1
+<span class="del">-        return example</span>
+<span class="add">+    return example</span></pre>
+      <p>
+        The 0,1,2 → negative and 3,4 → positive mapping is the authors' choice and is preserved
+        verbatim; only the control flow is fixed.
+      </p>
+
+      <div class="filename"><span>data.py</span><span><span class="chip fatal">Removed kwarg</span></span></div>
+      <pre>         data_files=path_to_data,
+<span class="del">-            ignore_verifications=False,</span>
+         cache_dir=cache_dir</pre>
+
+      <div class="filename"><span>train_retrival_model.py</span><span><span class="chip risk">Interactive block</span></span></div>
+      <pre><span class="del">-    if training_args.local_rank == 0:</span>
+<span class="add">+    if (training_args.local_rank in (-1, 0)</span>
+<span class="add">+            and wandb is not None</span>
+<span class="add">+            and "wandb" in (training_args.report_to or [])):</span></pre>
+      <p>
+        Also makes the <code>wandb</code> import soft. This additionally corrects the main-process
+        test: <code>local_rank</code> is <code>-1</code>, not <code>0</code>, for single-process
+        runs — so the original guard was wrong for exactly the single-GPU case this will run on.
+      </p>
+
+      <h3>Files changed</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th class="mono">File</th><th>Change</th><th style="width:1%">Kind</th></tr>
+          </thead>
+          <tbody>
+            <tr class="rec">
+              <td class="mono">Step_1/trainer.py</td>
+              <td>New — ~215 lines</td>
+              <td><span class="chip acc">Reconstructed</span></td>
+            </tr>
+            <tr><td class="mono">Step_1/cluster_sst2.py</td><td>1 line</td><td><span class="chip ok">Repaired</span></td></tr>
+            <tr><td class="mono">Step_1/download_data.py</td><td>1 line</td><td><span class="chip ok">Repaired</span></td></tr>
+            <tr><td class="mono">Step_1/data.py</td><td>1 line</td><td><span class="chip ok">Repaired</span></td></tr>
+            <tr><td class="mono">Step_1/train_retrival_model.py</td><td>2 hunks</td><td><span class="chip ok">Repaired</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================= 05 ================= -->
+    <section id="verification">
+      <h2><span class="num">05</span><span>Verification</span></h2>
+
+      <div class="split">
+        <div class="panel">
+          <h4><span class="chip ok">Verified</span></h4>
+          <ul>
+            <li><strong>Syntax</strong> — all five Python files parse cleanly under <code>ast.parse</code>.</li>
+            <li><strong><code>map_amazon_label</code></strong> — executed the patched function over inputs 0–4. Returns <code>[0, 0, 0, 1, 1]</code>, never <code>None</code>.</li>
+            <li><strong>Cluster loop</strong> — replicated over a 3-element fixture. Writes 3 rows, each with its own <code>text_id</code>. Pre-fix this produced 1.</li>
+            <li><strong>Beam-shape contract</strong> — simulated <code>generate()</code>'s flat output, applied the exact reshape-and-pad from <code>prediction_step</code>, then ran the <em>real</em> consumer loop from <code>make_compute_metrics</code> against it.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4><span class="chip risk">Not verified</span></h4>
+          <ul>
+            <li><strong>Nothing has been run end-to-end.</strong></li>
+            <li><code>torch</code>, <code>transformers</code>, and <code>sentence-transformers</code> are not installed locally, and the system Python is 3.14 — too new for that stack.</li>
+            <li>mT5-Large needs ~20 GB with Adam optimizer states. The local machine has 16 GB unified memory, so the training step <strong>cannot</strong> execute there at the paper's model size.</li>
+            <li>The <code>generate()</code> call, the constrained-decode integration, and convergence are all <strong>unproven until a GPU run</strong>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="filename"><span>simulated shape check</span><span>B=4, R=20, gen_len=6, id_max_length=20</span></div>
+      <pre>map_amazon_label 0..4 -> [0, 0, 0, 1, 1] | None returned: False
+cluster rows written: 3 expected: 3
+predictions: (4, 20, 20) labels: (4, 20)
+compute_metrics consumed 4/4 examples; beam0 of ex0 == generate row 0: True
+negative ids remaining in labels: 0</pre>
+
+      <div class="note caution">
+        <span class="label">The real verification gate</span>
+        <p>
+          Treat the <strong>smoke test in Step 6 of the runbook</strong> as the point at which the
+          reconstruction is actually proven. It is the first true execution of
+          <code>trainer.py</code>, and it costs about two minutes instead of discovering a defect
+          eight hours into a paid run.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= 06 ================= -->
+    <section id="runbook">
+      <h2><span class="num">06</span><span>GCP implementation runbook</span></h2>
+
+      <ol class="steps">
+
+        <li class="step">
+          <div class="step-n"></div>
+          <div class="step-body">
+            <h3>Request GPU quota first</h3>
+            <p>
+              <strong>Do this before anything else; it is the longest pole.</strong> New GCP
+              projects default to <strong>zero</strong> GPU quota, and approval takes anywhere from
+              minutes to two business days.
+            </p>
+            <p>IAM &amp; Admin → Quotas → filter for:</p>
+            <ul>
+              <li><code>NVIDIA_A100_GPUS</code> in your target region — request <strong>1</strong></li>
+              <li><code>GPUS_ALL_REGIONS</code> — request <strong>1</strong></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="step">
+          <div class="step-n"></div>
+          <div class="step-body">
+            <h3>Pick the machine</h3>
+            <p>
+              <strong>Recommendation: <code>a2-highgpu-1g</code> — 1× A100 40 GB.</strong>
+              mT5-Large needs ~20 GB, so this fits with real headroom for a larger batch.
+            </p>
+            <div class="note caution">
+              <span class="label">On the H100 question</span>
+              <p>
+                On GCP, H100s are sold almost exclusively as <code>a3-highgpu-8g</code> —
+                <strong>eight</strong> GPUs at roughly $88/hr. For a 1.2B model on 32-token
+                sequences that is badly wasteful; you would leave seven GPUs idle. The A100 is the
+                right call here.
+              </p>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th class="mono">Machine</th><th>GPU</th><th class="num">On-demand</th><th>Verdict</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="mono">g2-standard-8</td><td>1× L4 24 GB</td><td class="num">~$0.85/hr</td><td>Tight; needs gradient checkpointing</td></tr>
+                  <tr class="rec"><td class="mono">a2-highgpu-1g</td><td>1× A100 40 GB</td><td class="num">~$3.67/hr</td><td><strong>Recommended</strong></td></tr>
+                  <tr><td class="mono">a2-ultragpu-1g</td><td>1× A100 80 GB</td><td class="num">~$5.07/hr</td><td>Unnecessary headroom</td></tr>
+                  <tr><td class="mono">a3-highgpu-8g</td><td>8× H100 80 GB</td><td class="num">~$88/hr</td><td>Wasteful for this job</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <pre>gcloud compute instances create hardllm-step1 \
+  --zone=us-central1-a \
+  --machine-type=a2-highgpu-1g \
+  --image-family=pytorch-latest-gpu \
+  --image-project=deeplearning-platform-release \
+  --maintenance-policy=TERMINATE \
+  --boot-disk-size=200GB \
+  --boot-disk-type=pd-ssd \
+  --metadata="install-nvidia-driver=True" \
+  --scopes=https://www.googleapis.com/auth/cloud-platform</pre>
+            <p>
+              <strong>Spot instances</strong> cut cost 60–70% (add
+              <code>--provisioning-model=SPOT --instance-termination-action=STOP</code>) but can be
+              preempted. Only sane combined with frequent checkpointing to GCS. For a 140k-step run,
+              worth it.
+            </p>
+          </div>
+        </li>
+
+        <li class="step">
+          <div class="step-n"></div>
+          <div class="step-body">
+            <h3>Environment</h3>
+            <p>The Deep Learning VM image ships CUDA, drivers, and PyTorch. Add the rest:</p>
+            <pre>gcloud compute ssh hardllm-step1 --zone=us-central1-a
+
+nvidia-smi   <span class="cm"># confirm the A100 is visible before going further</span>
+
+pip install "transformers&gt;=4.40,&lt;5" datasets sentence-transformers \
+            sentencepiece protobuf scikit-learn accelerate</pre>
+            <div class="note warn">
+              <span class="label">Not optional</span>
+              <p>
+                <code>sentencepiece</code> and <code>protobuf</code> are required —
+                <code>MT5Tokenizer</code> fails to load without them, and the error message does not
+                make the cause obvious.
+              </p>
+            </div>
+          </div>
+        </li>
+
+        <li class="step">
+          <div class="step-n"></div>
+          <div class="step-body">
+            <h3>Get the code up</h3>
+            <pre>gcloud compute scp --recurse ./HardLLM/Step_1 hardllm-step1:~/Step_1 --zone=us-central1-a</pre>
+          </div>
+        </li>
+
+        <li class="step">
+          <div class="step-n"></div>
+          <div class="step-body">
+            <h3>Create the output directories</h3>
+            <pre>cd ~/Step_1 &amp;&amp; mkdir -p sst2 cache models</pre>
+            <p>
+              Not optional. <code>download_data.py</code> and <code>cluster_sst2.py</code> both call
+              <code>open('./sst2/...', 'w')</code> without creating the directory first, and will
+              raise <code>FileNotFoundError</code>. Left unpatched deliberately — one
+              <code>mkdir</code> is cleaner than editing three files.
+            </p>
+          </div>
+        </li>
+
+        <li class="step">
+          <div class="step-n"></div>
+          <div class="step-body">
+            <h3>Data prep and clustering</h3>
+            <pre>python download_data.py            <span class="cm"># ~minutes</span>
+wc -l sst2/sst_public.jsonl        <span class="cm"># expect ~233,675</span>
+wc -l sst2/sst_private.jsonl       <span class="cm"># expect ~33,675</span>
+
+python cluster_sst2.py             <span class="cm"># ~10-25 min</span>
+wc -l sst2/sst2_with_clusters.jsonl   <span class="cm"># MUST match sst_public.jsonl</span></pre>
+            <div class="note warn">
+              <span class="label">Regression test for blocker #2</span>
+              <p>
+                That last check is the one that catches the silent failure. If it prints
+                <code>1</code>, the append fix did not take effect.
+                <strong>Do not proceed past a mismatch.</strong>
+              </p>
+            </div>
+            <p>
+              One external dependency to confirm early: <code>download_data.py</code> pulls
+              <code>SetFit/amazon_reviews_multi_en</code>. Amazon withdrew the original
+              <code>amazon_reviews_multi</code> dataset from the Hub at one point; if this mirror is
+              also gone, substitute another review corpus with a 0–4 star label field and note the
+              substitution.
+            </p>
+            <p>
+              Expected geometry: <code>num_clusters = len(sentences) // 100</code> ≈
+              <strong>2,336 clusters</strong> of ~100 points each.
+            </p>
+          </div>
+        </li>
+
+        <li class="step">
+          <div class="step-n"></div>
+          <div class="step-body">
+            <h3>Smoke test before the real run</h3>
+            <pre>python train_retrival_model.py \
+  --model_name google/mt5-small \
+  --train_file ./sst2/sst2_with_clusters.jsonl \
+  --output_dir ./models/smoke \
+  --max_length 32 --id_max_length 20 --task DSI \
+  --per_device_train_batch_size 8 --per_device_eval_batch_size 8 \
+  --max_steps 50 --eval_strategy steps --eval_steps 25 \
+  --logging_steps 10 --report_to none --bf16</pre>
+            <p>
+              Success = it reaches the eval at step 25 and prints <code>Hits@1</code> /
+              <code>Hits@10</code>. The numbers will be near zero — 50 steps trains nothing —
+              <strong>and that is fine.</strong> What matters is that constrained beam search runs
+              and <code>compute_metrics</code> consumes the output without a shape or decode error.
+              That single line clears every unverified item in section 05.
+            </p>
+          </div>
+        </li>
+
+        <li class="step">
+          <div class="step-n"></div>
+          <div class="step-body">
+            <h3>The real run</h3>
+            <pre>python train_retrival_model.py \
+  --model_name google/mt5-large \
+  --train_file ./sst2/sst2_with_clusters.jsonl \
+  --output_dir ./models/sst2-cluster-mt5-large-DSI \
+  --max_length 32 --id_max_length 20 --task DSI \
+  --learning_rate 5e-4 --warmup_steps 10000 \
+  --per_device_train_batch_size 32 --per_device_eval_batch_size 32 \
+  --max_steps 140000 \
+  --eval_strategy steps --eval_steps 10000 \
+  --save_strategy steps --save_steps 10000 --save_total_limit 3 \
+  --bf16 --dataloader_num_workers 8 --logging_steps 100 \
+  --report_to none</pre>
+            <p>
+              <code>--max_steps 140000</code> mirrors the authors' shipped checkpoint path
+              (<code>checkpoint-140000</code>, referenced at
+              <code>Step_2/query_retrival_model.py:12</code>). Their batch size is not recorded
+              anywhere in the repo, so at batch 32 this is ~19 epochs over the 233k-row public set.
+              Index memorisation genuinely needs many passes — do not expect convergence in three.
+            </p>
+            <p>
+              On <code>--eval_strategy</code>: renamed from <code>--evaluation_strategy</code> in
+              transformers 4.46. If you pinned an older version, use the old flag.
+            </p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Estimate</th><th class="num">Value</th></tr></thead>
+                <tbody>
+                  <tr><td>Wall clock, 1× A100 40 GB</td><td class="num">6–12 hours</td></tr>
+                  <tr><td>Cost, on-demand</td><td class="num">$25–45</td></tr>
+                  <tr><td>Cost, spot</td><td class="num">$8–18</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Checkpoint off-box so a preemption or stopped VM does not cost you the run:</p>
+            <pre>gsutil -m rsync -r ./models gs://&lt;your-bucket&gt;/hardllm/step1/</pre>
+          </div>
+        </li>
+
+        <li class="step">
+          <div class="step-n"></div>
+          <div class="step-body">
+            <h3>Shut down</h3>
+            <pre>gcloud compute instances stop hardllm-step1 --zone=us-central1-a</pre>
+            <p>
+              A stopped A100 instance still bills for its 200 GB SSD (~$34/month). Delete it once
+              checkpoints are safely in GCS.
+            </p>
+          </div>
+        </li>
+
+      </ol>
+    </section>
+
+    <!-- ================= 07 ================= -->
+    <section id="outputs">
+      <h2><span class="num">07</span><span>What Step 1 produces</span></h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th class="mono">Artifact</th><th>Contents</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">sst2/sst_public.jsonl</td><td>~233k public rows (SST-2 half + Amazon)</td></tr>
+            <tr><td class="mono">sst2/sst_private.jsonl</td><td>~33.7k held-out private rows — input to Step 2</td></tr>
+            <tr><td class="mono">sst2/sst2_with_clusters.jsonl</td><td>Public rows, each tagged with its <code>text_id</code> (document index)</td></tr>
+            <tr class="rec"><td class="mono">models/…/checkpoint-140000/</td><td>The trained retrieval model — the artifact Step 2 loads</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Presentable results</h3>
+      <ul>
+        <li><strong>Hits@1 / Hits@10</strong> on the held-out subset, straight from <code>make_compute_metrics</code> — the headline quantitative result for Step 1.</li>
+        <li><strong>Cluster size distribution</strong> across the ~2,336 clusters.</li>
+        <li><strong>Qualitative cluster inspection</strong> — print member sentences from a few clusters to show semantic coherence. This is the most persuasive single artifact, because coherent clusters are the entire premise of the document-index design: if similar sentences don't share an index, nothing downstream works.</li>
+        <li><strong>2D t-SNE / UMAP</strong> of the PCA-reduced embeddings, coloured by cluster.</li>
+      </ul>
+    </section>
+
+    <!-- ================= 08 ================= -->
+    <section id="risks">
+      <h2><span class="num">08</span><span>Remaining risks</span></h2>
+
+      <div class="note warn">
+        <span class="label">01 · This is a reconstruction, not a recovery</span>
+        <p>
+          <code>trainer.py</code> satisfies every constraint the surviving call sites impose, and
+          the shape contract is simulation-verified. But the authors' original may differ in details
+          that change <em>numbers</em> rather than <em>behaviour</em> — beam count, length penalty,
+          or whether they evaluated on a held-out split at all. Note that
+          <code>valid_dataset</code> is <code>Subset(train_dataset, range(1000))</code>, i.e.
+          <strong>carved from the training set</strong>, so reported Hits@k are optimistic by
+          construction and measure memorisation, not generalisation.
+        </p>
+      </div>
+
+      <div class="note caution">
+        <span class="label">02 · Upstream may have the real file</span>
+        <p>
+          The local clone has two commits (<code>fa9101e</code>,
+          <code>dd6c759 "add codes"</code>) and looks like a partial dump. Check
+          <code>hardllm/HardLLM</code> upstream, and the ancestor DSI-QG repo, before trusting this
+          reconstruction for publication. A recovered original beats my reconstruction, and it is a
+          five-minute check.
+        </p>
+      </div>
+
+      <div class="note caution">
+        <span class="label">03 · mT5-Large hyperparameters are inferred</span>
+        <p>
+          LR 5e-4 and 10k warmup are reasonable T5-family defaults, not values recovered from the
+          paper — the paper does not report Step 1 hyperparameters.
+        </p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">04 · Steps 2–4 remain broken</span>
+        <p>
+          Out of scope here. Step 2 in particular has a privacy-accounting defect — L2 sensitivity
+          is √5, not the hardcoded <code>1</code>, because <code>num_return_sequences=5</code> lets
+          each private record vote in five bins. That must be fixed before any differential-privacy
+          claim from this codebase is meaningful.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>HardLLM · Step 1</span>
+    <span>Reconstruction &amp; repair</span>
+    <span>Source: Step_1/STEP1_REPORT.md</span>
+  </footer>
+
+</div>

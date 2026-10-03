@@ -1,0 +1,93 @@
+@startuml step1_overview
+!pragma layout smetana
+' Step 1 end to end: raw corpora become an index, the index becomes weights.
+' Avoid "--" in labels (strikethrough) and ** across line breaks (will not close).
+
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam defaultFontSize 13
+skinparam ArrowColor #4a545c
+skinparam ArrowFontColor #4a545c
+skinparam ArrowFontSize 11
+skinparam roundCorner 6
+
+skinparam rectangle {
+  BorderColor #6b5b8e
+  BackgroundColor #f0ebf6
+  FontColor #241a33
+  BorderThickness 1
+}
+skinparam database {
+  BorderColor #6b7780
+  BackgroundColor #eceff1
+  FontColor #1a222a
+}
+skinparam package {
+  BorderColor #6b7780
+  BackgroundColor #f7f8f9
+  FontColor #1a222a
+  FontStyle bold
+}
+skinparam note {
+  BorderColor #96690f
+  BackgroundColor #fbf1dc
+  FontColor #40300a
+  FontSize 11
+}
+
+database "11 public corpora" as RAW
+rectangle "**Build pool**\nsplit public / private" as BP #fbf1dc
+
+database "**Public pool**\n441,699 rows" as PUB
+database "**Private sets**\n60,000 medical\n5,000 legal · 2,000 finance" as PRV
+
+package "ASSIGN AN INDEX TO EVERY ROW   ·   ~20 minutes, no training" as IDX {
+  rectangle "**Embed**\nMiniLM → 384 numbers" as EMB
+  rectangle "**Reduce**\nPCA → 48 dims\n//keeps 47.3% of the information//" as RED
+  rectangle "**Cluster**\nk-means, 441,699 ÷ 200\n→ 2,208 indexes" as KM
+  EMB -down-> RED
+  RED -down-> KM
+}
+
+rectangle "**Label medical content**\nlogistic regression\non MiniLM embeddings" as MED #fbf1dc
+
+database "**Indexed pool**\ntext · index · is_medical" as POOL
+
+package "MEMORISE THE INDEX INTO WEIGHTS   ·   14.8 GPU hours" as TRAIN {
+  rectangle "**Retrieval model**\nmT5-base · text → index\n45,000 steps, Adafactor, bf16" as DSI
+  rectangle "**Cooldown**\nlearning rate → 0\n4,000 steps\n//Hits@1 0.671 → 0.775//" as CD #fbf1dc
+  DSI -down-> CD
+}
+
+database "**Trained retrieval model**\ncheckpoint-4000-cooldown" as CKPT
+
+rectangle "**Autoregressive decoding**\nconstrained to index digits\nbeam width 20" as EV
+rectangle "**Held-in**\nHits@1 0.775 · Hits@10 0.973" as S1 #dfe3e6
+rectangle "**Unseen**\nHits@1 0.564 · Hits@5 0.862\n97.6% route to medical indexes\n0 / 500 invalid answers" as S2 #dfe3e6
+rectangle "**to Step 2**\nquery with private data" as NEXT #dfe3e6
+
+RAW -down-> BP
+BP -down-> PUB
+BP -down-> PRV
+PUB -down-> EMB
+PUB -down-> MED
+KM -down-> POOL
+MED -down-> POOL
+POOL -down-> DSI
+CD -down-> CKPT
+CKPT -down-> EV
+EV -down-> S1
+EV -down-> S2
+CKPT -down-> NEXT
+PRV .down.> S2 : "scored against\n500 held-out records"
+
+note right of KM
+  This is the answer key.
+  Everything to the right spends
+  14.8 GPU hours learning to
+  reproduce what these three
+  boxes computed in 20 minutes.
+end note
+
+@enduml

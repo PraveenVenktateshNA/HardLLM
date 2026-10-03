@@ -1,0 +1,96 @@
+@startuml retrieval_model
+!pragma layout smetana
+' Inside the DSI box: how mT5-base turns text into a cluster index.
+' Avoid "--" in labels: PlantUML reads it as strikethrough.
+' Avoid ** spanning a line break: it will not close.
+
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam defaultFontSize 13
+skinparam ArrowColor #4a545c
+skinparam ArrowFontColor #4a545c
+skinparam ArrowFontSize 11
+skinparam roundCorner 6
+
+skinparam rectangle {
+  BorderColor #6b5b8e
+  BackgroundColor #f0ebf6
+  FontColor #241a33
+  BorderThickness 1
+}
+skinparam package {
+  BorderColor #6b7780
+  BackgroundColor #f7f8f9
+  FontColor #1a222a
+  FontStyle bold
+  BorderThickness 1
+}
+skinparam note {
+  BorderColor #96690f
+  BackgroundColor #fbf1dc
+  FontColor #40300a
+  FontSize 11
+}
+
+rectangle "**Patient message**\n//I have chest tightness and//\n//numbness in my left arm//" as IN #eceff1
+
+rectangle "**SentencePiece tokenizer**\ntext → token ids\ntruncated at 256 tokens" as TOK
+
+package "ENCODER  ·  12 identical blocks" as ENC {
+  rectangle "self-attention\n12 heads, width 768" as E1
+  rectangle "feed-forward\n768 → 2048 → 768" as E2
+  E1 -down-> E2
+}
+
+rectangle "**encoded message**\n256 × 768 numbers" as H #eceff1
+
+package "DECODER  ·  12 identical blocks" as DEC {
+  rectangle "self-attention\nover digits written so far" as D1
+  rectangle "cross-attention\nreads the encoder output" as D2
+  rectangle "feed-forward" as D3
+  D1 -down-> D2
+  D2 -down-> D3
+}
+
+rectangle "**output projection**\n768 → 250,112 scores\n//one score per token mT5 knows//" as PROJ
+
+rectangle "**CONSTRAINT MASK**\nprefix_allowed_tokens_fn\nkeep only  0 1 2 3 4 5 6 7 8 9  and <stop>\n**250,101 options deleted, 11 survive**" as MASK #fbf1dc
+
+rectangle "**beam search, width 20**\n20 candidate indexes kept alive\nin parallel, best one wins" as BEAM
+
+rectangle "**cluster index 1647**\none of 2,208 valid answers" as OUT #dfe3e6
+
+IN -down-> TOK
+TOK -down-> ENC
+ENC -down-> H : "read once"
+H -down-> DEC
+DEC -down-> PROJ
+PROJ -down-> MASK
+MASK -down-> BEAM
+BEAM -up[#96690f,dashed]-> DEC : "next digit\n//repeat ~5 times//"
+BEAM -down-> OUT
+
+note right of PROJ
+  **192 M of the 580 M parameters are here.**
+  Two thirds of mT5-base is a 250,112-token
+  multilingual dictionary, for a task whose
+  whole alphabet is ten digits.
+end note
+
+note right of BEAM
+  5 digits × 20 beams
+  **≈ 100 decoder passes per message**
+
+  **520 ms** median on an M1
+  **1,115 ms** at the 99th percentile
+end note
+
+note left of MASK
+  Why **0 of 500** unseen queries
+  produced an invalid answer:
+  the model is structurally
+  incapable of saying anything else.
+end note
+
+@enduml

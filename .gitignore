@@ -1,0 +1,80 @@
+# ---------------------------------------------------------------- weights
+# Trained checkpoints: 2.2 GB each. Backed up in
+# gs://hardllm-pool-praveenvenkatesh/ckpt/ and kept locally.
+Step_1/models/checkpoint-*/
+Step_2/models/
+Step_3/models/
+Step_4/models/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+
+# Derived caches -- regenerate in seconds from cached embeddings.
+Step_1/models/centroids_pca48.npz
+Step_1/models/cluster_summary.json
+*.npz
+
+# Kept deliberately (small, and they ARE the results):
+#   Step_1/models/train.log            eval trajectory, 5k-45k
+#   Step_1/models/cooldown.log         0.671 -> 0.775
+#   Step_1/models/unseen_eval.json     unseen Hits@1/@5/@10
+#   Step_1/models/abstention_curve.json  operating curve + latency
+!Step_1/models/*.log
+!Step_1/models/unseen_eval.json
+!Step_1/models/abstention_curve.json
+
+# ------------------------------------------------------------------- data
+# Corpora and embeddings. Rebuild with Step_1/build_pool.py +
+# cluster_pool.py -- deterministic under SEED = 313.
+pool/
+cache/
+hf_cache/
+data/
+*.jsonl
+*.npy
+*.arrow
+# ...but the paper's own tiny fixtures, if any, stay:
+!**/example*.jsonl
+
+# ------------------------------------------------------------------ tools
+# Fetched on demand:
+#   curl -sL -o plantuml.jar https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar
+Step_1/diagrams/plantuml.jar
+*.jar
+
+# Diagram sources AND renders are deliverables -- keep .puml .png .svg.
+
+# ----------------------------------------------------------------- python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------- secrets
+# Step_4/train_downstream_generation.py:122 has a hardcoded HF token
+# inherited from the upstream repo. .gitignore cannot help with an
+# already-tracked file -- see the note in PAPER_FINDINGS.md.
+.env
+.env.*
+*.key
+*.pem
+credentials.json
+service-account*.json
+
+# -------------------------------------------------------------------- os
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# ----------------------------------------------------------------- scratch
+*.tmp
+tmp/
+scratch/
+wandb/
+runs/

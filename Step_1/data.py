@@ -17,7 +17,6 @@ class IndexingTrainDataset(Dataset):
         self.train_data = datasets.load_dataset(
             'json',
             data_files=path_to_data,
-            ignore_verifications=False,
             cache_dir=cache_dir
         )['train']
 
@@ -25,9 +24,9 @@ class IndexingTrainDataset(Dataset):
         self.tokenizer = tokenizer
         self.remove_prompt = remove_prompt
         self.total_len = len(self.train_data)
-        self.valid_ids = set()
-        for data in tqdm(self.train_data):
-            self.valid_ids.add(str(data['text_id']))
+        # Columnar read. Iterating the dataset row-by-row builds a Python dict
+        # per row and takes minutes over 440k rows; this takes about a second.
+        self.valid_ids = {str(i) for i in self.train_data['text_id']}
 
     def __len__(self):
         return self.total_len

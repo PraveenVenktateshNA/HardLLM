@@ -49,8 +49,8 @@ labels = kmeans.labels_
 new_data = [] 
 for idx, label in enumerate(labels): 
     entry = train_data[idx].copy() 
-    entry['text_id'] = int(label) 
-new_data.append(entry) 
+    entry['text_id'] = int(label)
+    new_data.append(entry)
 new_save_directory = os.path.join('./sst2/', 'sst2_with_clusters.jsonl') 
 with open(new_save_directory, 'w') as f: 
     for entry in new_data: 

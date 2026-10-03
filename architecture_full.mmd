@@ -1,0 +1,55 @@
+%% HardLLM overview -- QuDP (Steps 1-3) + TQU (Step 4)
+%% Layout mirrors Fig. 5: client above the trust boundary, server below.
+%% Only three artefacts ever cross it, and none of them is private data.
+flowchart TB
+    classDef client fill:#e7f4ec,stroke:#3f7d5c,stroke-width:1px,color:#12281d
+    classDef server fill:#f0ebf6,stroke:#6b5b8e,stroke-width:1px,color:#241a33
+    classDef tqu    fill:#e9e9f5,stroke:#55558c,stroke-width:1px,color:#1c1c33
+    classDef store  fill:#eceff1,stroke:#6b7780,stroke-width:1px,color:#1a222a
+    classDef deploy fill:#dfe3e6,stroke:#4a545c,stroke-width:1.5px,color:#141a1f
+
+    subgraph CLIENT["CLIENT &nbsp;·&nbsp; e.g. hospital device"]
+        direction LR
+        PD[("Private data<br/>60,000 medical records")]:::store
+        subgraph S2["Step 2 &nbsp;·&nbsp; Query retrieval model with privacy enhancement"]
+            direction LR
+            Q["Query retrieval model<br/>top-5 indexes per record"]:::client
+            H["Count index<br/>clean histogram"]:::client
+            NZ["Add Gaussian noise<br/>N(0, σ²I)"]:::client
+            Q --> H --> NZ
+        end
+        PD --> Q
+    end
+
+    subgraph SERVER["SERVER &nbsp;·&nbsp; e.g. base station"]
+        direction LR
+        PUB[("Public data<br/>441,699 rows · 7 domains")]:::store
+        subgraph S1["Step 1 &nbsp;·&nbsp; Training retrieval model via document index"]
+            direction LR
+            CL["Cluster<br/>2,208 indexes"]:::server
+            RM["Retrieval model<br/>text → index"]:::server
+            CL --> RM
+        end
+        subgraph S3["Step 3 &nbsp;·&nbsp; Resampling and synthetic data"]
+            direction LR
+            RS["Resample<br/>within each index"]:::server
+            DG["Data generator"]:::server
+            RS --> DG
+        end
+        PUB --> CL
+        PUB --> RS
+        DG --> FD[("Final dataset")]:::store
+    end
+
+    subgraph S4["Step 4 &nbsp;·&nbsp; Trustworthy quantization"]
+        direction LR
+        PRE["Pretrained LLM"]:::tqu
+        FT["Fine-tuned LLM"]:::tqu
+        QL["Quantized LLM"]:::tqu
+        PRE -->|LoRA| FT -->|TQU| QL
+    end
+
+    RM -. "send retrieval model" .-> Q
+    NZ -. "send noisy histogram" .-> RS
+    FD -. "send final dataset" .-> PRE
+    QL -. "send quantized LLM" .-> DEP["Downstream task deployment"]:::deploy

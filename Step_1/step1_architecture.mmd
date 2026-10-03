@@ -1,0 +1,40 @@
+%% Step 1 -- Training the retrieval model via document index
+%% Read left to right: raw corpora become an index, the index becomes weights.
+flowchart LR
+    classDef stage fill:#f0ebf6,stroke:#6b5b8e,stroke-width:1px,color:#241a33
+    classDef ours  fill:#fbf1dc,stroke:#96690f,stroke-width:1px,color:#40300a
+    classDef store fill:#eceff1,stroke:#6b7780,stroke-width:1px,color:#1a222a
+    classDef out   fill:#dfe3e6,stroke:#4a545c,stroke-width:1.5px,color:#141a1f
+
+    RAW[("11 public corpora")]:::store
+    RAW --> BP["Build pool<br/>split public / private"]:::ours
+    BP --> PUB[("Public pool<br/>441,699 rows")]:::store
+    BP --> PRV[("Private sets<br/>medical · legal · finance")]:::store
+
+    subgraph IDX["Assign a document index to every row"]
+        direction LR
+        EMB["Embed<br/>MiniLM"]:::stage
+        RED["Reduce<br/>PCA 48"]:::stage
+        KM["Cluster<br/>k-means → 2,208 indexes"]:::stage
+        EMB --> RED --> KM
+    end
+    PUB --> EMB
+
+    MED["Label medical content<br/>classifier on embeddings"]:::ours
+    PUB --> MED
+
+    KM --> POOL[("Indexed pool<br/>text · index · is_medical")]:::store
+    MED --> POOL
+
+    subgraph TRAIN["Memorise the index into weights"]
+        direction LR
+        DSI["Retrieval model<br/>mT5 · text → index"]:::stage
+        CD["Cooldown<br/>learning rate → 0"]:::ours
+        DSI --> CD
+    end
+    POOL --> DSI
+
+    CD --> CKPT[("Trained retrieval model")]:::store
+    CKPT --> EV["Autoregressive decoding<br/>constrained to index digits"]:::stage
+    EV --> SCORE["Hits@1 0.775 · Hits@10 0.973"]:::stage
+    CKPT --> NEXT(["to Step 2"]):::out

@@ -9,12 +9,12 @@ def add_source_label_amazon(example):
     return example 
 
 
-def map_amazon_label(example): 
-    if example['label'] in [0, 1,2]: 
-        example['label'] = 0 
-    elif example['label'] in [3, 4]: 
-        example['label'] = 1 
-        return example 
+def map_amazon_label(example):
+    if example['label'] in [0, 1,2]:
+        example['label'] = 0
+    elif example['label'] in [3, 4]:
+        example['label'] = 1
+    return example
 
 
 def load_sst2():
