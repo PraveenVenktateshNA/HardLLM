@@ -1,0 +1,38 @@
+{
+  "model": "hardllm-fullsample",
+  "answer_nll": 2.8544,
+  "answer_perplexity": 17.364,
+  "answer_tokens_scored": 104197,
+  "mmlu_medical": 0.2195,
+  "mmlu_by_subject": {
+    "anatomy": 0.2222,
+    "clinical_knowledge": 0.2151,
+    "college_biology": 0.25,
+    "college_medicine": 0.2081,
+    "medical_genetics": 0.3,
+    "professional_medicine": 0.1838
+  },
+  "demo_answers": [
+    "You are having low B12 level. So you should take treatment accordingly.",
+    "The symptoms of your father are suggestive of infection. It can be due to any cause like viral or bacterial infection. You need to consult pulmonologist and get done clinical examination of respiratory system. PFT (Pulmonary Function Test) will give you exact diagnosis. Then start appropriate treatment accordingly.",
+    "You are having pain in your back and neck. It is due to compression of nerve roots. So better to consult physiotherapist and get done MRI spine. If both these are normal then no need to worry about this.",
+    "You are having chest pain with palpitations. So better to consult pulmonologist and get done 2d echo and hologram. Then you should take treatment accordingly.",
+    "You are having gastritis. It can be due to many reasons like stress, anxiety, alcohol intake etc. So better to consult psychiatrist and get done counselling sessions. He will prescribe you medicines for your problem.",
+    "You are having anxiety disorder. So better to consult psychiatrist and get done counselling sessions. He will prescribe you anti-depressant like alprazolam or clonazepam.",
+    "You are having cyst on clitoris. It may be due to infection or some other cause like viral infection. So better to consult gynecologist and get done clinical examination of abdomen and PFT (Pulmonary Function Test). If both these are normal then no need to worry about this.",
+    "You are having enlarged lymph node in your jaw. It is due to infection or inflammation. So better to consult pulmonologist and get done clinical examination of mouth and throat. If all these are normal then no need to worry about it.",
+    "You are having irregular periods. So possibility of pregnancy is more in your case. So better to consult gynecologist and get done ultrasound abdomen and PFT (Pulmonary Function Test). Then you should take treatment accordingly.",
+    "You are having chronic kidney disease. So better to consult pulmonologist and get done1. Ultrasound abdomen2. PFT (Pulmonary Function Test). If both these are normal then no need to worry about pregnancy.",
+    "You are having infection in your appendix. It is common in people with chronic infections. So better to consult pulmonologist and get done clinical examination of abdomen. PFT (Pulmonary Function Test) will give you exact diagnosis. Then you should take treatment accordingly.",
+    "You are suffering from TMJD. It is due to tooth infection. So consult dentist and get done clinical examination of mouth. If needed then take treatment accordingly.",
+    "You are having vaginal discharge due to sexual intercourse. It can be due to infection or some other cause like bacterial infection. So better to consult gynecologist and get done clinical examination of vagina. If both these are normal then no need to worry about infection.",
+    "You are having viral hepatitis B infection. So you should go for complete blood count and culture sensitivity test. If both these are normal then no need to worry about viral hepatitis B.",
+    "You have high cholesterol, low HDL, high triglycerides, high LDL, high triglyceride levels, high triglyceride levels in your blood. So you should take treatment accordingly.",
+    "You are having irregular periods due to hormonal imbalance in your body. So better to consult gynecologist and get done clinical examination of abdomen and PFT (Pulmonary Function Test). If both these are normal then no need to worry about pregnancy.",
+    "You are having chronic bronchitis, which is caused by smoking. So better to consult pulmonologist and get done clinical examination of respiratory system (PFT). PFT will give you exact diagnosis. Then you should take treatment accordingly.",
+    "You are having abdominal pain due to gastritis. It is mostly due to gastritis. So better to consult gastroenterologist and get done clinical examination of abdomen. PFT (Pulmonary Function Test) will give you exact diagnosis. Then you should take treatment accordingly.",
+    "You are having allergic reaction to honey bee sting. So you should take antihistamines like cetirizine or albuterol for relief of symptoms.",
+    "The hole in the heart (PFO) is due to an infection of the heart. It can be treated with antibiotics like amoxicillin or metronidazole. If it is not cured then you should consult your doctor and get it examined."
+  ],
+  "minutes": 1.5
+}

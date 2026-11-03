@@ -1,0 +1,37 @@
+{
+  "usable_pairs": 36786,
+  "kept_for_training": 16000,
+  "sampling": "same GPT-2 as hardllm; top_k off, top_p 1.0, temperature 1.0",
+  "vocabulary": {
+    "hardllm": {
+      "answer_words": 1187931,
+      "distinct_per_100k": 3687,
+      "test_words_never_seen": 0.0326,
+      "top100_share": 0.6178
+    },
+    "hardllm-fullsample": {
+      "answer_words": 1344534,
+      "distinct_per_100k": 8641,
+      "test_words_never_seen": 0.0101,
+      "top100_share": 0.4982
+    },
+    "selected": {
+      "answer_words": 1470843,
+      "distinct_per_100k": 7678,
+      "test_words_never_seen": 0.0064,
+      "top100_share": 0.5078
+    },
+    "random": {
+      "answer_words": 1995728,
+      "distinct_per_100k": 8394,
+      "test_words_never_seen": 0.0075,
+      "top100_share": 0.4972
+    },
+    "private": {
+      "answer_words": 1345665,
+      "distinct_per_100k": 7039,
+      "test_words_never_seen": 0.0066,
+      "top100_share": 0.5216
+    }
+  }
+}
