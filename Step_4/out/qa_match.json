@@ -1,0 +1,45 @@
+{
+  "common_words_ignored": 228,
+  "sets": {
+    "hardllm": {
+      "pairs": 16000,
+      "questions_with_specific_words": 15931,
+      "answer_uses_its_question_words": 0.5984,
+      "same_with_answers_shuffled": 0.0857,
+      "depends_on_question": 0.5126,
+      "mean_share_of_question_words_in_answer": 0.1714
+    },
+    "selected": {
+      "pairs": 16000,
+      "questions_with_specific_words": 15950,
+      "answer_uses_its_question_words": 0.7799,
+      "same_with_answers_shuffled": 0.1373,
+      "depends_on_question": 0.6426,
+      "mean_share_of_question_words_in_answer": 0.1926
+    },
+    "random": {
+      "pairs": 16000,
+      "questions_with_specific_words": 15938,
+      "answer_uses_its_question_words": 0.8235,
+      "same_with_answers_shuffled": 0.1219,
+      "depends_on_question": 0.7016,
+      "mean_share_of_question_words_in_answer": 0.3178
+    },
+    "private": {
+      "pairs": 16000,
+      "questions_with_specific_words": 15980,
+      "answer_uses_its_question_words": 0.7672,
+      "same_with_answers_shuffled": 0.1395,
+      "depends_on_question": 0.6277,
+      "mean_share_of_question_words_in_answer": 0.1384
+    },
+    "test_private": {
+      "pairs": 1000,
+      "questions_with_specific_words": 999,
+      "answer_uses_its_question_words": 0.7477,
+      "same_with_answers_shuffled": 0.1231,
+      "depends_on_question": 0.6246,
+      "mean_share_of_question_words_in_answer": 0.1354
+    }
+  }
+}
