@@ -1,0 +1,86 @@
+{
+ "cases": [
+  {
+   "id": 1,
+   "patient": "John Doe",
+   "text": "My 60 year old male grandfather is having a 104 degree fever",
+   "created": 1793227392.963372,
+   "status": "waiting",
+   "assessment": {
+    "level": "urgent",
+    "advice": "See a doctor today. Go to emergency if it gets worse.",
+    "reasons": [
+     "high temperature (40.0 \u00b0C / 104.0 \u00b0F)"
+    ],
+    "other_reasons": [],
+    "symptoms": [
+     "fever"
+    ],
+    "duration": null,
+    "age": "60 years",
+    "sex": "male",
+    "temperature_c": 40.0,
+    "department": "General medicine",
+    "specialty": null,
+    "recognised": true
+   }
+  },
+  {
+   "id": 2,
+   "patient": "jane doe",
+   "text": "my hands are paining, i am sweating all night, and im coughing up blood, i dont know what it is. might be a bad spoiled lunch i had 5 days ago",
+   "created": 1793255930.962141,
+   "status": "seen",
+   "assessment": {
+    "level": "emergency",
+    "advice": "Go to the emergency department now, or call an ambulance (112 / 108 in India, 911 in the US).",
+    "reasons": [
+     "vomiting or coughing blood (\u201ccoughing up blood\u201d)"
+    ],
+    "other_reasons": [],
+    "symptoms": [
+     "vomiting or coughing blood"
+    ],
+    "duration": "5 days",
+    "age": null,
+    "sex": null,
+    "temperature_c": null,
+    "department": "Emergency department",
+    "specialty": "Gastroenterology",
+    "recognised": true
+   },
+   "seen_at": 1793260186.109159
+  },
+  {
+   "id": 3,
+   "patient": "Jane Doe",
+   "text": "my 2 year old has a 105 degree fever and is having rashes in his arm, he is coughing heavily and is unable to breath properly",
+   "created": 1793268181.963563,
+   "status": "waiting",
+   "assessment": {
+    "level": "emergency",
+    "advice": "Go to the emergency department now, or call an ambulance (112 / 108 in India, 911 in the US).",
+    "reasons": [
+     "difficulty breathing (\u201cunable to breath\u201d)"
+    ],
+    "other_reasons": [
+     "high temperature (40.6 \u00b0C / 105.0 \u00b0F)",
+     "high temperature in a child under 3"
+    ],
+    "symptoms": [
+     "difficulty breathing",
+     "fever",
+     "cough",
+     "rash or itching"
+    ],
+    "duration": null,
+    "age": "2 years",
+    "sex": null,
+    "temperature_c": 40.6,
+    "department": "Emergency department",
+    "specialty": "Pulmonology",
+    "recognised": true
+   }
+  }
+ ]
+}
