@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HardLLM Medical Assistant</title>
+<link rel="stylesheet" href="app.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232a78d6'/%3E%3Cpath d='M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z' fill='white'/%3E%3C/svg%3E">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <span class="logo" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8"/><path d="M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z"/></svg></span>
+    <span class="brand-text"><strong>HardLLM</strong><span>private medical assistant</span></span>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button role="tab" data-tab="ask" aria-selected="true">Ask</button>
+    <button role="tab" data-tab="intake" aria-selected="false">Intake</button>
+    <button role="tab" data-tab="queue" aria-selected="false">Hospital queue<span class="tab-count" id="queue-count" hidden></span></button>
+    <button role="tab" data-tab="results" aria-selected="false">Results</button>
+  </nav>
+  <div class="top-right">
+    <span class="status" id="status"><span class="dot"></span><span id="status-text">connecting</span></span>
+    <button class="icon-btn" id="theme" aria-label="Switch light/dark theme" title="Light / dark">
+      <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- ASK -->
+  <section class="panel" id="tab-ask" role="tabpanel">
+    <div class="ask-grid">
+      <div class="chat">
+        <div class="thread" id="thread" aria-live="polite">
+          <div class="empty" id="empty">
+            <h1>Ask a medical question</h1>
+            <p>Describe symptoms the way a patient would. The answer is written live by a 3-billion-parameter model running entirely on this laptop. Nothing is sent to the internet.</p>
+            <div class="chips" id="chips"></div>
+          </div>
+        </div>
+        <form class="composer" id="composer">
+          <textarea id="input" rows="1" maxlength="2000" placeholder="e.g. I've had a dry cough and mild fever for five days…" aria-label="Your question"></textarea>
+          <button type="submit" id="send" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-2.5-6.5z"/></svg></button>
+        </form>
+        <p class="disclaimer">Research demo of the HardLLM pipeline. Answers are AI-generated and can be wrong: not medical advice. See a doctor.</p>
+      </div>
+      <aside class="model-card" id="model-card"></aside>
+    </div>
+  </section>
+
+  <!-- INTAKE -->
+  <section class="panel" id="tab-intake" role="tabpanel" hidden>
+    <div class="section-head">
+      <h2>Patient intake</h2>
+      <p>For a health worker or the front desk. Type what the patient says. Fixed rules set the urgency, so the same words always give the same result and every result shows which words caused it. The AI note is written by the HardLLM model on this laptop and only explains possible causes: any sentence telling the patient what to do is removed.</p>
+    </div>
+    <div class="intake-grid">
+      <form class="card intake-form" id="intake-form" autocomplete="off">
+        <label for="patient">Patient name or ID <span class="opt">optional</span></label>
+        <input id="patient" maxlength="60" placeholder="e.g. Bed 4, or R. Kumar">
+        <label for="intake-text">What the patient says</label>
+        <textarea id="intake-text" rows="5" maxlength="2000" placeholder="e.g. My 2 year old has had a fever of 104 for three days"></textarea>
+        <p class="hint">Examples</p>
+        <div class="chips" id="intake-chips"></div>
+        <div class="form-actions"><button type="submit" class="btn primary" id="assess">Assess</button></div>
+      </form>
+      <div class="intake-result" id="intake-result" aria-live="polite">
+        <div class="card placeholder">The urgency, a summary for the doctor and the AI note appear here. Every assessed patient joins the hospital queue.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUEUE -->
+  <section class="panel" id="tab-queue" role="tabpanel" hidden>
+    <div class="section-head">
+      <h2>Hospital queue</h2>
+      <p>Every intake sent here, most urgent first, then longest waiting. Staff mark patients as seen. Kept on this laptop and saved across restarts.</p>
+    </div>
+    <div class="queue-bar">
+      <div class="counts" id="queue-counts"></div>
+      <div class="queue-filters">
+        <select id="dept-filter" aria-label="Department"><option value="">All departments</option></select>
+        <label class="check"><input type="checkbox" id="show-seen"> Show seen</label>
+      </div>
+    </div>
+    <div class="queue-list" id="queue-list"></div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="panel" id="tab-results" role="tabpanel" hidden>
+    <div class="section-head">
+      <h2>Results</h2>
+      <p><strong>Answer perplexity</strong>: how surprised a model is by the real doctor's answer to a real patient question, over 1,000 held-out conversations (104,197 tokens). Lower is better.</p>
+    </div>
+    <div class="card chart-card">
+      <div class="chart-head">
+        <h3>Answer perplexity by training data</h3>
+        <div class="seg" role="group" aria-label="View">
+          <button data-view="chart" aria-pressed="true">Chart</button>
+          <button data-view="table" aria-pressed="false">Table</button>
+        </div>
+      </div>
+      <div id="chart" class="chart"></div>
+      <div id="chart-table" hidden></div>
+      <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+    </div>
+    <div class="card">
+      <h3>Compressing the final model</h3>
+      <div id="compress"></div>
+    </div>
+    <details class="sources">
+      <summary>Where every number comes from</summary>
+      <div id="sources"></div>
+    </details>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
