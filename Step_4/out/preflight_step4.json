@@ -1,0 +1,71 @@
+{
+  "gpu": "NVIDIA GeForce RTX 5070 Ti",
+  "train_tokens_all_arms": 13140384,
+  "probes": {
+    "checkpointing=0 rows_per_pass=4": {
+      "ok": false,
+      "why": "out of memory",
+      "tail": "                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 MiB. GPU 0 has a total capacity of 15.89 GiB of which 0 bytes is free. 15.10 GiB allowed; Of the allocated memory 14.82 GiB is allocated by PyTorch, and 270.68 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)\n\n  0%|          | 0/6 [00:01<?, ?it/s]"
+    },
+    "checkpointing=0 rows_per_pass=2": {
+      "arm": "private",
+      "steps": 6,
+      "seconds": 48.86396241188049,
+      "tokens": 102400,
+      "tokens_per_second": 1005.8946834006542,
+      "train_loss": 0.7116885185241699,
+      "first_logged_loss": null,
+      "last_logged_loss": null,
+      "peak_reserved_frac": 0.933,
+      "ok": false,
+      "why": "peak memory 93% > 90%"
+    },
+    "checkpointing=1 rows_per_pass=8": {
+      "arm": "private",
+      "steps": 6,
+      "seconds": 42.93475961685181,
+      "tokens": 102400,
+      "tokens_per_second": 1144.8066890004886,
+      "train_loss": 0.7113396326700846,
+      "first_logged_loss": null,
+      "last_logged_loss": null,
+      "peak_reserved_frac": 0.926,
+      "ok": false,
+      "why": "peak memory 93% > 90%"
+    },
+    "checkpointing=1 rows_per_pass=4": {
+      "arm": "private",
+      "steps": 6,
+      "seconds": 23.073484182357788,
+      "tokens": 102400,
+      "tokens_per_second": 2130.2374453521893,
+      "train_loss": 0.7118740876515707,
+      "first_logged_loss": null,
+      "last_logged_loss": null,
+      "peak_reserved_frac": 0.666,
+      "ok": true
+    },
+    "checkpointing=1 rows_per_pass=2": {
+      "arm": "private",
+      "steps": 6,
+      "seconds": 22.75338625907898,
+      "tokens": 102400,
+      "tokens_per_second": 2160.2059333206957,
+      "train_loss": 0.711280345916748,
+      "first_logged_loss": null,
+      "last_logged_loss": null,
+      "peak_reserved_frac": 0.535,
+      "ok": true
+    }
+  },
+  "chosen": {
+    "checkpointing": 1,
+    "rows_per_pass": 2,
+    "tokens_per_second": 2160
+  },
+  "estimate_minutes": {
+    "train": 112,
+    "evaluate": 16
+  },
+  "failures": []
+}

@@ -1,0 +1,82 @@
+{
+  "base": {
+    "model": "base",
+    "answer_nll": 2.688,
+    "answer_perplexity": 14.703,
+    "answer_tokens_scored": 104197,
+    "mmlu_medical": 0.6309,
+    "mmlu_by_subject": {
+      "anatomy": 0.5704,
+      "clinical_knowledge": 0.6038,
+      "college_biology": 0.6736,
+      "college_medicine": 0.5896,
+      "medical_genetics": 0.71,
+      "professional_medicine": 0.6618
+    },
+    "minutes": 1.8
+  },
+  "hardllm": {
+    "model": "hardllm",
+    "answer_nll": 2.9464,
+    "answer_perplexity": 19.038,
+    "answer_tokens_scored": 104197,
+    "mmlu_medical": 0.2195,
+    "mmlu_by_subject": {
+      "anatomy": 0.2074,
+      "clinical_knowledge": 0.2189,
+      "college_biology": 0.25,
+      "college_medicine": 0.2081,
+      "medical_genetics": 0.3,
+      "professional_medicine": 0.1875
+    },
+    "minutes": 2.1
+  },
+  "selected": {
+    "model": "selected",
+    "answer_nll": 2.3284,
+    "answer_perplexity": 10.262,
+    "answer_tokens_scored": 104197,
+    "mmlu_medical": 0.3085,
+    "mmlu_by_subject": {
+      "anatomy": 0.3556,
+      "clinical_knowledge": 0.3472,
+      "college_biology": 0.3472,
+      "college_medicine": 0.3006,
+      "medical_genetics": 0.42,
+      "professional_medicine": 0.1912
+    },
+    "minutes": 1.5
+  },
+  "random": {
+    "model": "random",
+    "answer_nll": 2.3852,
+    "answer_perplexity": 10.861,
+    "answer_tokens_scored": 104197,
+    "mmlu_medical": 0.2929,
+    "mmlu_by_subject": {
+      "anatomy": 0.363,
+      "clinical_knowledge": 0.3283,
+      "college_biology": 0.3056,
+      "college_medicine": 0.2717,
+      "medical_genetics": 0.37,
+      "professional_medicine": 0.2022
+    },
+    "minutes": 1.5
+  },
+  "private": {
+    "model": "private",
+    "answer_nll": 2.3097,
+    "answer_perplexity": 10.071,
+    "answer_tokens_scored": 104197,
+    "mmlu_medical": 0.2433,
+    "mmlu_by_subject": {
+      "anatomy": 0.3037,
+      "clinical_knowledge": 0.234,
+      "college_biology": 0.2708,
+      "college_medicine": 0.237,
+      "medical_genetics": 0.3,
+      "professional_medicine": 0.1912
+    },
+    "minutes": 1.4
+  }
+}

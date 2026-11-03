@@ -1,0 +1,43 @@
+{
+  "arm": "selected",
+  "steps": 1000,
+  "seconds": 2108.4289395809174,
+  "tokens": 3377384,
+  "tokens_per_second": 1601.8486260539123,
+  "train_loss": 2.252369068145752,
+  "first_logged_loss": 2.4668499755859377,
+  "last_logged_loss": 2.168302459716797,
+  "peak_reserved_frac": 0.538,
+  "minutes": 35.1,
+  "rows": 16000,
+  "answer_only_loss": true,
+  "eos_learned": true,
+  "lora": {
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "targets": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ]
+  },
+  "args": {
+    "arm": "selected",
+    "model": "C:\\Project_step4\\Step_4\\portable\\llama-3.2-3b",
+    "output_dir": null,
+    "batch_size": 16,
+    "micro_batch": 2,
+    "checkpointing": 1,
+    "max_len": 512,
+    "lr": 0.0002,
+    "max_steps": -1,
+    "rows": null,
+    "worst_case": false,
+    "mem_cap": 0.95
+  }
+}

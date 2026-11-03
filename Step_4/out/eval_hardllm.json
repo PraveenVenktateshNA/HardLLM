@@ -1,0 +1,38 @@
+{
+  "model": "hardllm",
+  "answer_nll": 2.9464,
+  "answer_perplexity": 19.038,
+  "answer_tokens_scored": 104197,
+  "mmlu_medical": 0.2195,
+  "mmlu_by_subject": {
+    "anatomy": 0.2074,
+    "clinical_knowledge": 0.2189,
+    "college_biology": 0.25,
+    "college_medicine": 0.2081,
+    "medical_genetics": 0.3,
+    "professional_medicine": 0.1875
+  },
+  "demo_answers": [
+    "You are having low B12 level. It is due to deficiency of vitamin D3. Vitamin D3 deficiency causes high blood pressure. So you should take vitamin D3 supplements regularly.",
+    "The symptoms of your father are suggestive of infection. I would suggest you to consult a general surgeon who will examine him and get it evaluated. If there is no improvement then you can take antibiotics like amoxicillin or clindamycin.",
+    "You are having pain in your back and neck region due to compression of nerve roots. It is mostly due to compression of nerve root which causes pain. So better to consult physiotherapist and get done MRI spine and PFT (Pulmonary Function Test). If both these are normal then no need to worry about any other cause.",
+    "You may have some cardiac cause like arrhythmia, heart failure etc. So better to consult cardiologist and get done ECG 2. 2d echo Holder monitoring (24 hour continuous recording of ECG) If all these are normal then no need to worry about heart diseases.",
+    "You are having gastritis due to alcohol intake. So better to consult pulmonologist and get done clinical examination of abdomen and PFT (Pulmonary Function Test). If both these are normal then no need to worry about gastritis.",
+    "You are having anxiety disorder. So better to consult psychiatrist and get done counselling sessions. Try to identify stressor in your life and start working on its solution.",
+    "You may have some infection in your vagina or some other cause like urinary tract infection. So get done clinical examination of vagina and rule out any infection. Then start appropriate treatment accordingly.",
+    "You may have some infection in your mouth or tooth. It can be due to many reasons like infection in teeth, gum disease etc. So get done clinical examination and sensitivity test for that. Then you should take treatment accordingly.",
+    "You are having irregular periods. Ovulation is delayed due to hormonal imbalance. So you should take ovulation induction treatment like progesterone or progesterone combination. If you have regular periods then you can conceive after taking these medicines.",
+    "You are having low back pain. It can be due to many reasons like -1) Kidney stone2) Urinary tract infection3) Infection4) Kidney stones5) Urinary tract infection6) Urinary tract infection7) Urinary tract infection8) Urinary tract infection9) Urinary tract infection10) Urinary tract infection11) Urinary tract infection12) Urinary tract infection13) Urinary tract infection14) Urinary tract infection15) Urinary tract infection16) Urinary tract infection17) Urinary tract infection18) Urinary tract infection19) Urinary tract infection20) Urinary tract infection21) Urinary tract infection22) Urinary tract infection23) Urinary tract infection24) Urinary tract infection25) Urinary tract infection26) Urinary tract infection27) Urinary tract infection28) Urinary tract infection29) Urinary tract infection30) Urinary tract infection31) Urinary tract infection32) Urinary tract infection33) Urinary tract infection34) Urinary tract infection35) Urinary tract infection36) Urinary tract infection37) Urinary tract infection38) Urinary tract infection39) Urinary tract infection40) Urinary tract infection41) Urinary",
+    "As per your query you have undergone surgery for appendicitis. You are having infection in the wound which is causing swelling and pus discharge. It can be treated with antibiotics like amoxicillin and clavulanic acid.",
+    "You are having TMJD. It is due to compression of TMJ. So better to consult pulmonologist and get done clinical examination of respiratory system and PFT (Pulmonary Function Test). If both these are normal then no need to worry about TMJD.",
+    "You are having vaginal discharge due to infection. It can be due to many reasons like viral infection, bacterial infection etc. So better to consult gynecologist and get done clinical examination of vagina and PFT (Pulmonary Function Test). If both these are normal then no need to worry about vaginal discharge.",
+    "You are having viral gastroenteritis. It can be due to many reasons like infection, alcohol intake etc. So consult doctor and get done clinical examination of abdomen and PFT (Pulmonary Function Test). If all these are normal then no need to worry about viral gastroenteritis.",
+    "You have been diagnosed with a viral infection, which can be transmitted through contact with infected persons or animals. The virus has spread from person to person in the form of an infectious disease called as a viral hepatitis. It is not contagious but it may cause symptoms such as fever, vomiting, diarrhea, abdominal pain, headache, chest pain, etc. If you are having any of these symptoms then you should go for complete blood count and culture report.",
+    "You are having irregular periods. It can be due to many reasons like hormonal imbalance, stress, anxiety etc. So consult gynecologist and get done counselling sessions. Try to identify cause of your problem and start treatment accordingly.",
+    "You are having chronic bronchitis, which is due to smoking. So better to consult pulmonologist and get done clinical examination of respiratory system and PFT (Pulmonary Function Test). PFT will not only diagnose bronchitis but also rule out lung infection. So better to consult pulmonologist and discuss all these.",
+    "You may have some viral infection like typhoid or tuberculosis. So better to get done clinical examination of abdomen and PFT (Pulmonary Function Test). If both are normal than no need to worry about viral infection.",
+    "You are having allergic reaction of your body to insect bite. It is due to allergic reaction of skin to insect bite. So you should take antihistamines like cetirizine or paracetamol for relief.",
+    "The PFO (Pulmonary Function Test) is an important test which can be done only after pregnancy. It will tell you about your baby's condition and whether it is normal or abnormal. If it is normal then no need to worry much."
+  ],
+  "minutes": 2.1
+}

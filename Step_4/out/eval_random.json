@@ -1,0 +1,38 @@
+{
+  "model": "random",
+  "answer_nll": 2.3852,
+  "answer_perplexity": 10.861,
+  "answer_tokens_scored": 104197,
+  "mmlu_medical": 0.2929,
+  "mmlu_by_subject": {
+    "anatomy": 0.363,
+    "clinical_knowledge": 0.3283,
+    "college_biology": 0.3056,
+    "college_medicine": 0.2717,
+    "medical_genetics": 0.37,
+    "professional_medicine": 0.2022
+  },
+  "demo_answers": [
+    "Intrinsic factor is produced by stomach. It helps in absorption of vitamin B12 from intestine. If you are not producing it then you need to take injections of vitamin B12.",
+    "I am sorry to hear about your fathers health issues. The antibiotics are given intravenously as they have better absorption into the bloodstream than oral medications.",
+    "You are having symptoms of urticaria, which is an allergic reaction. It can be due to many reasons like food allergy, insect bite, sun exposure etc. I would suggest you to consult dermatologist for proper examination and treatment.",
+    "You are having chest pain which is radiating to left arm. This can be due to cardiac cause like angina or musculoskeletal pain. So better to consult doctor and get done ECG, 2d echo and stress test (trade mill test). If all these are normal then no need to worry about heart diseases. Apply warm water pad on affected areas. Avoid heavyweight lifting and strenuous exercise.",
+    "Ambien is not a disease but it is a condition which can be caused by many reasons like infection, stress, anxiety etc. It is important to know the cause for ambien so that you can treat it accordingly. I would suggest you to consult your doctor and get yourself examined. Doctor may order some tests like stool test, ultrasound abdomen, blood test etc. Doctor will then start appropriate treatment accordingly.",
+    "You are having symptoms of dizziness, light-headedness, pins and needles in limbs etc. These symptoms may be due to hypotension, low blood pressure, orthostatic hypotension, cardiac arrhythmia, autonomic neuropathy, postural hypotension, vertigo, vestibular dysfunction, cerebellar disease, multiple sclerosis, Parkinson's disease, etc. So better to consult neurologist and get done detailed examination of your nervous system. Doctor may order some investigations such as CT scan, MRI, EEG, ECG, etc. Doctor may prescribe some medicines according to diagnosis.",
+    "You may be having some cyst or abscess in that area. You should go for examination by gynecologist once. Doctor will examine your lump and take biopsy from it if needed. Then he will treat you accordingly.",
+    "You may be having some kind of infection in your gums or teeth. It is better to consult an oral physician and get it examined. If you are not able to visit an oral physician then take a course of antibiotics like amoxicillin 500\\u00a0mg TID for 5 days along with metronidazole 400\\u00a0mg TID for 5 days. Do warm saline rinses twice daily.",
+    "You have irregular cycles and you are taking Clomid. It is a good medication to induce ovulation. But it needs to be taken with other medications like camphene citrate or gonadotropins. If you are not taking any other medication then your chances of pregnancy are very less.",
+    "I am sorry for the pain that you are experiencing. The symptoms that you have described could be related to a recurrence of your previous kidney infection, or they could be due to some other cause. In any case, I would recommend consulting with your doctor to rule out these possibilities.",
+    "I am sorry to hear about your husbands experience with his surgery. It is true that some patients can be treated as outpatients, but there are many factors that go into determining whether someone should be admitted or not. In my opinion, if you have a large wound, especially one that has been infected, it would be best to admit them to the hospital for observation and treatment. This way they can receive proper care and monitoring while their body heals.",
+    "You are suffering from Temporomandibular Joint Disorder (TMD). It is a condition where there is pain in the temporomandibular joint which connects the lower jaw to the skull. The cause of TMD is unknown but it may be due to trauma, arthritis, stress, anxiety, bruxism etc. Treatment depends upon the severity of the symptoms. If the symptoms are mild then hot water fomentation, analgesics, muscle relaxants, vitamin B complex supplements, physiotherapy, mouth guards, splints, occlusal adjustment, and proper diet are helpful.",
+    "The symptoms you are having could be due to the friction caused by the lack of lubrication during intercourse. This can cause inflammation of the foreskin which will lead to the symptoms you are experiencing.",
+    "You are having alcohol induced gastritis. Alcohol causes irritation of mucosa of stomach. This leads to gastritis. It also causes vomiting. So you should avoid alcohol. Avoid hot and spicy food. Take pantoprazole tablet on empty stomach.",
+    "Your report shows that you have high cholesterol level. You should take low fat diet, avoid fatty food, oily food, junk food, fast food. Avoid smoking and alcohol if any. Take exercise daily for 45 minutes. Consult your doctor and take medicine accordingly.",
+    "You are having irregular menses. It can be due to hormonal imbalance or some other cause. I suggest you to consult gynecologist and get following investigations done to find out exact cause of your problem. Ultrasound of pelvis. Hormonal profile. PAP smear. If needed further tests.",
+    "You are having symptoms of soreness, pain and difficulty in swallowing after surgery. This is due to the surgical trauma to the area. It will take some time to heal up. Avoid hot and spicy food. Take soft diet. Do warm saline gargles.",
+    "You may have gastritis or gastroesophageal reflux disease (GERD). You should take proton pump inhibitor like omeprazole or pantoprazole. Avoid stress and tension. Avoid hot and spicy food. Avoid large meals, instead take frequent small meals.",
+    "You have taken antihistamines for your symptoms of allergic reaction. But you are still feeling dizzy, nauseous etc. This is because of the delayed onset of allergic reaction. It may take 2-3 days after exposure to develop symptoms. So do not worry. Take antihistamines as prescribed.",
+    "PFO (patent foramen ovale) is a small opening between two chambers of the heart. It is present at birth and usually closes on its own. However, if it doesn't close, it can cause blood clots to pass from one side of the heart to another. This can lead to stroke. So, if you have a history of stroke in your family, then you should get an ECHO done to see whether there is any PFO. If yes, then you need to take anticoagulants like warfarin."
+  ],
+  "minutes": 1.5
+}

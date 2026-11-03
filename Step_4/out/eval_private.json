@@ -1,0 +1,38 @@
+{
+  "model": "private",
+  "answer_nll": 2.3097,
+  "answer_perplexity": 10.071,
+  "answer_tokens_scored": 104197,
+  "mmlu_medical": 0.2433,
+  "mmlu_by_subject": {
+    "anatomy": 0.3037,
+    "clinical_knowledge": 0.234,
+    "college_biology": 0.2708,
+    "college_medicine": 0.237,
+    "medical_genetics": 0.3,
+    "professional_medicine": 0.1912
+  },
+  "demo_answers": [
+    "You are having pernicious anemia. It is due to deficiency of vitamin B-12. It can be treated by taking oral supplements of vitamin B-12. Intrinsic factor is produced by stomach. So it will not help you.",
+    "I am sorry to hear about your fathers health issues. The most important thing is to make sure that he has no fever or chills. If he does have these symptoms then it would be best if he went back to the hospital immediately.",
+    "It is not possible for me to say what could be the cause of your symptoms without examining you directly. I would suggest that you consult with a dermatologist and get evaluated.",
+    "You are having central chest pain which is getting aggravated with deep breathing and lying down position. So possibility of HERD (gastroesophageal reflux disease) is more likely. HERD is due to laxity of gastroesophageal sphincter. Because of this the acid of the stomach tends to come up in the esophagus and cause central chest pain. So avoid hot and spicy food. Avoid stress and tension. Avoid large meals, instead take frequent small meals. Go for walk after meals. Keep 2-3 pillows under head in bed to prevent reflux.",
+    "Ambien is a type of worm which can be found in the intestine. It causes abdominal pain, nausea, vomiting, diarrhea etc. You need to consult your doctor for proper diagnosis and treatment.",
+    "You are having symptoms of dizziness, light-headedness, pins and needle sensation, tingling etc. These symptoms may be due to anxiety disorder. But better to rule out cardiac cause first. So get done ECG and 2d echo. If both these are normal then no need to worry about heart diseases. Anxiety disorder is more likely in your case. So consult psychiatrist and get done counselling sessions. Try to identify stressor in your life and start working on its solution. Don't worry, you will be alright.",
+    "You may have some enlarged lymph node or some soft tissue tumor like lipoma or dermatofibroma. You should go for fine needle aspiration cytology or biopsy of that lump. It will give you exact diagnosis. Then you should take treatment accordingly.",
+    "The swelling in your case is most likely to be due to an infection in the space between the teeth and gums called periodontal abscess. This can occur when there is food lodgment in this area leading to inflammation and pus formation. You need to consult an oral physician for clinical examination and get it treated by scaling and root planing.",
+    "You have not mentioned your age. If you are under 35 years old then chances of pregnancy is good with the present treatment. But if you are over 35 years old then chances of pregnancy is less. So consult a gynecologist and take treatment accordingly.",
+    "I suggest you not to worry much. You have already been treated for the kidney infection, and now you are having pain in your back. The pain could be due to some other reason like muscle spasm or nerve compression. If you do not respond to treatment then you should consult a neurologist for further management.",
+    "I am sorry to hear about your husbands experience with his surgery. It is possible that the wound was infected at the time of the initial operation. This would have been picked up by the surgeon during the operation. If there was no evidence of infection at the time of the original operation, then it is likely that the wound became infected sometime later. Infection can occur anywhere along the length of the suture line.",
+    "As per your query you have symptoms of pain in jaw while chewing which is due to temporomandibular joint disorder. You may also have inflammation of muscles around the joint. Need not worry. I would suggest you to consult oral physician and get evaluated once. Doctor may order x-ray of affected area and go for physical examination. Doctor may prescribe muscle relaxant and analgesics like ibuprofen. Doctor may refer you to physiotherapist for further treatment. Physiotherapy like ultrasound therapy and TENS will help in reducing pain.",
+    "You are having symptoms of burning sensation while passing urine. It may be due to infection of urinary tract. You should go for routine urine test and culture report. If needed you can take antibiotics like ciprofloxacin twice daily for 5 days.",
+    "You are having symptoms of alcohol poisoning. Alcohol causes vomiting, nausea, headache, dizziness, abdominal pain etc. It also affects your liver function. So you should avoid alcohol completely. Consult doctor and take treatment accordingly.",
+    "Your report shows that you have high cholesterol level, which is a risk factor for heart disease. You should take statin medication like atorvastatin or rosuvastatin once daily after dinner. Also, you should avoid fatty food and junk food. Take more of fruits and green leafy vegetables.",
+    "You are having irregular menses. It can be due to hormonal imbalance or thyroid problem. You should go for thyroid profile and ultrasound of pelvis. If both are normal then you should consult gynecologist for further management.",
+    "You are having history of smoking, which is the major cause of your symptoms. Smoking causes inflammation of the mucosa of the upper respiratory tract. This leads to irritation and pain on swallowing. So better to quit smoking as soon as possible.",
+    "You may have some gastritis or peptic ulcer disease. You should go for upper GI endoscopy. It will give you exact diagnosis. Then you should take treatment accordingly.",
+    "You have not mentioned your age. If you are young then there is no need to worry about any serious complication. But if you are old or diabetic or hypertensive then you should consult doctor for proper management of symptoms.",
+    "PFO (patent foramen ovale) is a congenital defect of the heart. It is present at birth and does not cause any symptoms unless there is an episode of atrial fibrillation. In such cases, it can be treated by closing the PFO. This can be done either surgically or through catheterization. The choice depends on the preference of the patient and the treating physician."
+  ],
+  "minutes": 1.4
+}
