@@ -78,3 +78,31 @@ tmp/
 scratch/
 wandb/
 runs/
+
+# Step 3 portable Windows bundle (built by build_windows_bundle.sh, ~5 GB)
+Step_3/portable/win_python/
+Step_3/portable/gpt2/
+Step_3/portable/hf_home/
+
+# Step 4 portable bundle and outputs (win_python = Step 3's + peft; Llama ~6.4 GB)
+Step_4/portable/win_python/
+Step_4/portable/llama-3.2-3b/
+Step_4/portable/hf_home/
+Step_4/portable/tmp/
+Step_4/data/*.jsonl
+Step_4/models/
+Step_4/portable/minilm/
+
+# Step 5: GGUF models (1.9-6.4 GB), llama.cpp release binaries (b11552,
+# see Step_5/README.md), phone bundle, regenerated test text
+*.gguf
+Step_5/models/
+Step_5/portable/llama.cpp/
+Step_5/portable/llama.cpp-mac/
+Step_5/portable/tmp/
+Step_5/phone/dist/
+Step_5/out/test_text_for_llamacpp.txt
+
+# Exported chat transcripts (one holds the old HF token)
+sdp_chat_part2.txt
+*this-session-is-being-continued*.txt
