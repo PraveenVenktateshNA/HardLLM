@@ -109,6 +109,23 @@ Outputs in `Step_2/out/`:
 - `selected_centroid_eps<ε>_t<T>.jsonl`: the selected public rows for each
   setting. These are what Step 3 trains on. Add `--no_write` to skip them.
 
+## Walk one message through Step 2 by hand
+
+`query_step2.py` is the Step 2 version of Step 1's `query_index.py`. Type a
+patient message. It joins the hospital's 60,000 as one more private record, and
+the script prints every stage for it: its 5 votes, the counts before and after
+noise, whether it can be detected, the cutoff, and the public rows retrieved.
+It imports Step 2's own functions, so it does exactly what the real run does.
+
+```bash
+python HardLLM/Step_2/query_step2.py                     # interactive
+python HardLLM/Step_2/query_step2.py -q "my knee hurts"  # one message
+python HardLLM/Step_2/query_step2.py --eps inf           # no noise, for comparison
+```
+
+Every query draws fresh noise, so the same message gives slightly different
+released counts each time. Add `--seed 1` to fix it.
+
 ## After the sweep (not done yet)
 
 1. Pick the ε and T to carry forward, based on the sweep.

@@ -1,0 +1,308 @@
+<title>Private Data Selection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  :root {
+    --ground: #F3F6F5;
+    --surface: #FFFFFF;
+    --ink: #17252A;
+    --ink-soft: #3B4E55;
+    --muted: #66787E;
+    --rule: #D9E2E0;
+    --private: #6B2D5C;
+    --private-soft: #F3E6EF;
+    --public: #24705C;
+    --public-soft: #E1F0EA;
+    --noise: #B9770E;
+    --noise-soft: #FBF0DC;
+    --track: #E4EBE9;
+    --bad: #A8402F;
+    --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ground: #111A1C; --surface: #182326; --ink: #E1EAE8; --ink-soft: #BFCDCB;
+      --muted: #8FA2A2; --rule: #2A3A3D; --private: #D58AC0; --private-soft: #33202D;
+      --public: #5FC3A3; --public-soft: #17322B; --noise: #E2A847; --noise-soft: #33280F;
+      --track: #24322F; --bad: #E58A78;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #111A1C; --surface: #182326; --ink: #E1EAE8; --ink-soft: #BFCDCB;
+    --muted: #8FA2A2; --rule: #2A3A3D; --private: #D58AC0; --private-soft: #33202D;
+    --public: #5FC3A3; --public-soft: #17322B; --noise: #E2A847; --noise-soft: #33280F;
+    --track: #24322F; --bad: #E58A78;
+  }
+
+  body { background: var(--ground); color: var(--ink); font: 17px/1.55 var(--body); }
+  .wrap { max-width: 960px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 64px; display: grid; gap: 56px; }
+  h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+  h1 { font-size: clamp(30px, 5vw, 46px); font-weight: 800; line-height: 1.08; letter-spacing: -0.01em; }
+  h2 { font-size: 26px; font-weight: 700; line-height: 1.2; }
+  p { margin: 0; max-width: 66ch; }
+  .eyebrow { font: 600 13px/1 var(--body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  section { display: grid; gap: 20px; }
+  .lede { color: var(--ink-soft); font-size: 19px; }
+
+  /* header */
+  header { display: grid; gap: 16px; }
+  .headline-stats { display: flex; flex-wrap: wrap; gap: 12px 36px; margin-top: 8px; }
+  .hs { display: grid; gap: 2px; }
+  .hs b { font: 700 32px/1.1 var(--display); }
+  .hs span { color: var(--muted); font-size: 15px; }
+  .hs.priv b { color: var(--private); }
+  .hs.pub b { color: var(--public); }
+
+  /* pipeline */
+  .pipe { display: grid; gap: 0; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); overflow: hidden; }
+  .zone-label { display: flex; align-items: center; gap: 10px; padding: 10px 20px; font: 600 13px/1 var(--body); letter-spacing: 0.08em; text-transform: uppercase; }
+  .zone-label.priv { background: var(--private-soft); color: var(--private); }
+  .zone-label.pub { background: var(--public-soft); color: var(--public); }
+  .step { display: grid; grid-template-columns: 150px 1fr; gap: 6px 24px; padding: 18px 20px; border-top: 1px solid var(--rule); align-items: baseline; }
+  .step .big { font: 700 28px/1.1 var(--display); font-variant-numeric: tabular-nums; }
+  .step .unit { color: var(--muted); font-size: 14px; display: block; margin-top: 4px; font-family: var(--body); font-weight: 400; }
+  .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .step p { color: var(--ink-soft); font-size: 16px; }
+  .priv-step .big { color: var(--private); }
+  .pub-step .big { color: var(--public); }
+  .noise-step { background: var(--noise-soft); }
+  .noise-step .big { color: var(--noise); }
+  .boundary { display: flex; align-items: center; gap: 12px; padding: 12px 20px; border-top: 2px dashed var(--noise); border-bottom: 2px dashed var(--noise); color: var(--noise); font-weight: 600; font-size: 15px; }
+  .boundary::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--noise); flex: none; }
+
+  /* dataset bars */
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 20px; color: var(--muted); font-size: 14px; }
+  .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; vertical-align: -1px; margin-right: 6px; }
+  .bars { display: grid; gap: 14px; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 20px; }
+  .bar-row { display: grid; grid-template-columns: 190px 1fr 112px; gap: 14px; align-items: center; }
+  .bar-name { font-weight: 600; font-size: 15px; line-height: 1.25; }
+  .bar-name small { display: block; font-weight: 400; color: var(--muted); font-size: 13px; }
+  .track { position: relative; height: 18px; background: transparent; }
+  .track .pool { position: absolute; inset: 0 auto 0 0; background: var(--track); border-radius: 2px; }
+  .track .picked { position: absolute; inset: 0 auto 0 0; border-radius: 2px; }
+  .med .picked { background: var(--public); }
+  .other .picked { background: var(--muted); }
+  .bar-val { text-align: right; font-size: 14px; line-height: 1.25; }
+  .bar-val b { font-family: var(--mono); font-weight: 500; font-size: 15px; }
+  .bar-val small { display: block; color: var(--muted); }
+  .group-head { font: 600 13px/1 var(--body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-top: 6px; }
+  .group-head + .bar-row { margin-top: -2px; }
+  .summary-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+  .sumcard { border: 1px solid var(--rule); border-radius: 10px; padding: 16px 18px; background: var(--surface); display: grid; gap: 4px; }
+  .sumcard b { font: 700 26px/1.1 var(--display); }
+  .sumcard.good b { color: var(--public); }
+  .sumcard span { color: var(--ink-soft); font-size: 15px; }
+
+  /* topics table */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 15px; }
+  th, td { text-align: left; padding: 12px 16px; border-top: 1px solid var(--rule); vertical-align: top; }
+  thead th { border-top: 0; font: 600 13px/1.2 var(--body); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  td.n, th.n { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.ex { color: var(--ink-soft); font-style: italic; }
+
+  /* cutoff */
+  .compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .cmp { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--surface); display: grid; gap: 14px; }
+  .cmp.win { border-color: var(--public); box-shadow: inset 0 0 0 1px var(--public); }
+  .cmp h3 { font-size: 18px; }
+  .cmp dl { margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; }
+  .cmp dt { color: var(--ink-soft); }
+  .cmp dd { margin: 0; text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .cmp .bad { color: var(--bad); }
+  .cmp .good { color: var(--public); }
+
+  /* notes */
+  .notes { display: grid; gap: 14px; padding: 0; margin: 0; list-style: none; }
+  .notes li { display: grid; gap: 4px; padding-left: 16px; border-left: 3px solid var(--rule); }
+  .notes b { font-family: var(--display); font-weight: 700; }
+  .notes span { color: var(--ink-soft); }
+
+  footer { color: var(--muted); font-size: 14px; border-top: 1px solid var(--rule); padding-top: 20px; }
+
+  @media (max-width: 640px) {
+    .step { grid-template-columns: 1fr; }
+    .bar-row { grid-template-columns: 1fr 96px; }
+    .bar-row .track { grid-column: 1 / -1; grid-row: 2; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">HardLLM · Step 2 progress</div>
+    <h1>How 60,000 private patient records chose 36,201 public training rows</h1>
+    <p class="lede">The hospital's patient data never leaves the hospital. It only votes on which kinds of public text look like it. Those votes are blurred with random noise so no single patient can be traced, and the blurred votes decide what public text gets picked.</p>
+    <div class="headline-stats">
+      <div class="hs priv"><b class="num">60,000</b><span>private records in</span></div>
+      <div class="hs"><b class="num">0</b><span>private records out</span></div>
+      <div class="hs pub"><b class="num">36,201</b><span>public rows picked</span></div>
+      <div class="hs pub"><b>87%</b><span>of them medical</span></div>
+    </div>
+  </header>
+
+  <section>
+    <div class="eyebrow">The process</div>
+    <h2>From patient records to a public training set</h2>
+    <div class="pipe">
+      <div class="zone-label priv">Inside the hospital · private</div>
+      <div class="step priv-step">
+        <div class="big num">60,000<span class="unit">patient messages</span></div>
+        <div><h3>Private patient records</h3><p>Real questions patients sent, like “I fell yesterday and my ribs hurt badly.” This text never leaves.</p></div>
+      </div>
+      <div class="step priv-step">
+        <div class="big num">300,000<span class="unit">votes</span></div>
+        <div><h3>Each patient votes for 5 topics</h3><p>The public data was sorted into 2,208 topics in Step 1 (chest pain, back pain, product reviews, sports news…). Each record names the 5 topics it looks most like. 60,000 × 5 = 300,000 votes.</p></div>
+      </div>
+      <div class="step priv-step">
+        <div class="big num">812<span class="unit">of 2,208 topics</span></div>
+        <div><h3>Votes are counted per topic</h3><p>Only 812 topics got any votes. 73 topics got over 1,000 votes each and hold 89% of all votes. The other 1,396 topics (reviews, news, legal, finance) got none.</p></div>
+      </div>
+      <div class="step noise-step">
+        <div class="big num">±15<span class="unit">noise per topic</span></div>
+        <div><h3>Random noise is added to every topic's count</h3><p>So nobody can tell whether any one patient is in the data. Privacy level ε = 0.5, which is strong. A count of 7,159 becomes about 7,171. A count of 0 might become 12.</p></div>
+      </div>
+      <div class="boundary">Only these 2,208 blurred numbers leave the hospital. No text, no names.</div>
+      <div class="zone-label pub">Outside · public, safe to share</div>
+      <div class="step pub-step">
+        <div class="big num">188<span class="unit">topics kept</span></div>
+        <div><h3>Counts too small to trust are dropped</h3><p>A topic needs a blurred count of at least 45 (three times the noise) to count. This removes topics that only “got votes” because of the noise.</p></div>
+      </div>
+      <div class="step pub-step">
+        <div class="big num">36,201<span class="unit">public rows</span></div>
+        <div><h3>Public rows are picked from each kept topic</h3><p>Each topic gives as many rows as its count asks for. 115 popular topics asked for more rows than they have, so all of their rows were taken (27,769 rows). 73 smaller topics gave a random sample (8,432 rows).</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">What got picked</div>
+    <h2>Rows picked from each public dataset</h2>
+    <p>The public pool has 441,699 rows from 11 datasets, and only 9% of it is medical. Each bar shows how big a dataset is (grey) and how much of it was picked (filled), on the same scale.</p>
+    <div class="legend"><span><i style="background:var(--track)"></i>rows in the dataset</span><span><i style="background:var(--public)"></i>picked, medical dataset</span><span><i style="background:var(--muted)"></i>picked, other dataset</span></div>
+    <div class="bars" id="bars"></div>
+    <div class="summary-row">
+      <div class="sumcard good"><b class="num">78%</b><span>of the 3 medical datasets picked: 31,357 of 40,000 rows</span></div>
+      <div class="sumcard"><b class="num">1.2%</b><span>of the 8 other datasets picked: 4,844 of 401,699 rows</span></div>
+      <div class="sumcard good"><b class="num">98.8%</b><span>of patient questions picked, the kind of text the hospital's data is</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Most-voted topics</div>
+    <h2>What the patients' data looks like, seen through public text</h2>
+    <p>The most popular topics are all medical. In each one, the patients asked for far more rows than exist, so every row was taken. Examples are public text from that topic.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Example from the topic</th><th class="n">Votes</th><th class="n">Rows in topic</th><th class="n">Rows taken</th></tr></thead>
+        <tbody>
+          <tr><td class="ex">“I have had a kidney stone before and am experiencing some symptoms that make me feel I have one again.”</td><td class="n">7,159</td><td class="n">292</td><td class="n">292</td></tr>
+          <tr><td class="ex">“Do I need to see a doctor for esophageal stricture?”</td><td class="n">7,141</td><td class="n">265</td><td class="n">265</td></tr>
+          <tr><td class="ex">“Chest pain earlier, right sided, to the back as well…”</td><td class="n">6,895</td><td class="n">337</td><td class="n">337</td></tr>
+          <tr><td class="ex">“Do I need to see a doctor for ulcerative colitis?”</td><td class="n">6,438</td><td class="n">234</td><td class="n">234</td></tr>
+          <tr><td class="ex">“Do I need to see a doctor for urinary tract infection?”</td><td class="n">6,225</td><td class="n">237</td><td class="n">237</td></tr>
+          <tr><td class="ex">“Lower major back pain, took medication and the pain went from major to a minor dull ache.”</td><td class="n">5,814</td><td class="n">284</td><td class="n">284</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>This is why 300,000 votes become only 36,201 rows: the public pool runs out. The kidney-stone topic asked for 7,159 rows and only has 292.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">The cutoff</div>
+    <h2>Why topics with small counts are dropped</h2>
+    <p>Noise is added to every topic, including the 1,396 that no patient voted for. About half of those come out above zero by chance and would pull in unrelated text. Same privacy level (ε = 0.5) in both:</p>
+    <div class="compare">
+      <div class="cmp">
+        <h3>Without the cutoff</h3>
+        <dl>
+          <dt>Topics used</dt><dd>1,227</dd>
+          <dt>Topics no patient voted for</dt><dd class="bad">671</dd>
+          <dt>Rows picked</dt><dd>50,149</dd>
+          <dt>Unrelated rows from those topics</dt><dd class="bad">7,846</dd>
+          <dt>Medical</dt><dd class="bad">63%</dd>
+        </dl>
+      </div>
+      <div class="cmp win">
+        <h3>With the cutoff (used)</h3>
+        <dl>
+          <dt>Topics used</dt><dd>188</dd>
+          <dt>Topics no patient voted for</dt><dd class="good">1</dd>
+          <dt>Rows picked</dt><dd>36,201</dd>
+          <dt>Unrelated rows from those topics</dt><dd class="good">46</dd>
+          <dt>Medical</dt><dd class="good">87%</dd>
+        </dl>
+      </div>
+    </div>
+    <p>The cutoff only looks at numbers that are already blurred, so it costs no privacy. The price: 625 rare topics, holding 1.2% of the votes, are dropped too.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">What we fixed and found</div>
+    <h2>Where the paper's version went wrong</h2>
+    <ul class="notes">
+      <li><b>The paper's code never added the privacy noise.</b><span>A bug threw the noisy counts away and read a file that was never written. We apply the noise for real.</span></li>
+      <li><b>The paper used about 2.6× too little noise.</b><span>It assumed each patient votes once (they vote 5 times) and allowed the protection to fail for 1 in 100 patients. We use 1 in 60,000.</span></li>
+      <li><b>The paper's “smart” row picking is effectively random.</b><span>Its weights differ by only 0.24% within a topic, and it took about 5 hours. Same result now in seconds.</span></li>
+      <li><b>The whole step runs in minutes on a laptop.</b><span>Matching all 60,000 records to topics took 3.6 minutes. The paper's retrieval model would take about 7 hours for the same matching.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="eyebrow">Limits</div>
+    <h2>What this does not show yet</h2>
+    <ul class="notes">
+      <li><b>The private and public patient questions come from the same website.</b><span>We split one dataset into a private half and a public half, so close matches were guaranteed to exist. A real hospital's notes would match less well. Testing with data from a different source is planned.</span></li>
+      <li><b>Rare conditions get dropped.</b><span>A condition only a handful of patients have is exactly where one patient stands out, so the noise has to hide it. This is the cost of privacy.</span></li>
+      <li><b>One release only.</b><span>We tried four privacy levels to choose one. A real deployment releases once, at ε = 0.5.</span></li>
+    </ul>
+  </section>
+
+  <footer>Step 2 of HardLLM (Deng et al., IEEE TIFS 2025), re-implemented. Measured on an Apple M1 laptop, 16 GB. “Medical” here means the row comes from one of the three medical datasets (ChatDoctor, drug reviews, MedQuAD).</footer>
+</div>
+
+<script>
+  const MAX = 100000;
+  const groups = [
+    { head: "Medical datasets", cls: "med", rows: [
+      ["ChatDoctor", "patient questions", 15000, 14816],
+      ["Drug reviews", "patients rating medicines", 15000, 10510],
+      ["MedQuAD", "medical encyclopedia Q&A", 10000, 6031],
+    ]},
+    { head: "Other datasets", cls: "other", rows: [
+      ["Amazon reviews", "product reviews", 100000, 2213],
+      ["AG News", "news articles", 100000, 675],
+      ["Yelp reviews", "business reviews", 80000, 578],
+      ["SQuAD", "Wikipedia Q&A", 50000, 1217],
+      ["LexGLUE", "legal text", 40000, 2],
+      ["FiQA", "finance Q&A", 14401, 42],
+      ["DialogSum", "everyday conversations", 12460, 88],
+      ["Financial PhraseBank", "finance news", 4838, 29],
+    ]},
+  ];
+  const fmt = n => n.toLocaleString("en-US");
+  const host = document.getElementById("bars");
+  for (const g of groups) {
+    const h = document.createElement("div");
+    h.className = "group-head";
+    h.textContent = g.head;
+    host.appendChild(h);
+    for (const [name, what, pool, picked] of g.rows) {
+      const pct = 100 * picked / pool;
+      const row = document.createElement("div");
+      row.className = "bar-row " + g.cls;
+      row.innerHTML =
+        `<div class="bar-name">${name}<small>${what}</small></div>` +
+        `<div class="track"><div class="pool" style="width:${100 * pool / MAX}%"></div>` +
+        `<div class="picked" style="width:${Math.max(100 * picked / MAX, picked ? 0.3 : 0)}%"></div></div>` +
+        `<div class="bar-val"><b>${fmt(picked)}</b><small>of ${fmt(pool)} · ${pct < 1 ? pct.toFixed(1) : Math.round(pct)}%</small></div>`;
+      host.appendChild(row);
+    }
+  }
+</script>

@@ -1,0 +1,12 @@
+flowchart LR
+    subgraph H["Hospital: private"]
+        P["60k patient records"] --> R["Router<br/>top-5 topics"] --> V["300k votes<br/>812 / 2,208 topics"] --> N["Noise on all topics<br/>ε 0.5, δ 1/60k, Δ √5"]
+    end
+    subgraph Pub["Public"]
+        C["Cutoff < 3σ"] --> S{"count > topic size?"}
+        POOL[("Pool 441k<br/>9% medical")] --> S
+        S -->|yes| W["Take whole topic"] --> O["36k rows<br/>88% medical"]
+        S -->|no| SM["Random sample"] --> O
+    end
+    N --> C
+    O --> S3["Step 3"]
