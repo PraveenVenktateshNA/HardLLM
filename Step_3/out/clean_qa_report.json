@@ -1,0 +1,23 @@
+{
+  "input_rows": 100000,
+  "kept_rows": 90155,
+  "kept_share": 0.902,
+  "dropped": {
+    "medquad_link_list_or_missing_table": 3351,
+    "answer_too_short_after_cleaning": 3067,
+    "duplicate_question": 1611,
+    "repetition_loop": 1462,
+    "question_repetition_loop": 354
+  },
+  "rows_changed_but_kept": {
+    "greeting_removed": 86465,
+    "changed": 85643,
+    "signoff_removed": 76962,
+    "chatdoctor_or_url_sentence_removed": 14180,
+    "unfinished_tail_cut": 4400
+  },
+  "kept_answer_words_median": 70,
+  "kept_answers_still_mentioning_chat_doctor": 0,
+  "kept_answers_starting_hi_hello": 314,
+  "kept_answers_with_url": 0
+}

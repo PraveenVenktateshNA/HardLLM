@@ -1,0 +1,20 @@
+{
+  "data": "C:\\Project\\Step_2\\out\\selected_centroid_eps0.5_t3.jsonl",
+  "train_rows": 34391,
+  "val_rows": 1810,
+  "steps": 6450,
+  "minutes": 7.5,
+  "val_loss": 3.2715718746185303,
+  "val_perplexity": 26.352729991691664,
+  "args": {
+    "data": "C:\\Project\\Step_2\\out\\selected_centroid_eps0.5_t3.jsonl",
+    "model": "C:\\Project\\Step_3\\portable\\gpt2",
+    "output_dir": "C:\\Project\\Step_3\\models\\gpt2-generator",
+    "epochs": 3,
+    "lr": 5e-05,
+    "batch_size": 16,
+    "seq_len": 128,
+    "val_frac": 0.05,
+    "max_steps": -1
+  }
+}

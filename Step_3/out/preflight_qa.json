@@ -1,0 +1,40 @@
+{
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 5070 Ti",
+    "gib": 15.9
+  },
+  "pairs": 16788,
+  "generate": {
+    "tokens": 400,
+    "tried": [
+      {
+        "batch": 256,
+        "seconds": 10.4,
+        "peak_reserved_frac": 1.218,
+        "peak_allocated_frac": 0.275
+      },
+      {
+        "batch": 128,
+        "seconds": 5.2,
+        "peak_reserved_frac": 0.311,
+        "peak_allocated_frac": 0.147
+      }
+    ],
+    "chosen": {
+      "batch": 128,
+      "seconds": 5.2,
+      "peak_reserved_frac": 0.311,
+      "peak_allocated_frac": 0.147
+    }
+  },
+  "train": {
+    "steps": 10,
+    "seconds_per_step": 0.25,
+    "peak_mem_frac": 0.646
+  },
+  "estimate_minutes": {
+    "train": 12,
+    "generate": 80
+  },
+  "failures": []
+}

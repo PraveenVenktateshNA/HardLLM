@@ -1,0 +1,21 @@
+{
+  "status": "complete",
+  "written_total": 100000,
+  "written_this_session": 100000,
+  "dropped_unfinished": 5739,
+  "dropped_malformed": 135,
+  "minutes_this_session": 63.1,
+  "device": "NVIDIA GeForce RTX 5070 Ti",
+  "args": {
+    "qa": true,
+    "model": "D:\\Project\\Step_3\\models\\gpt2-qa",
+    "output": "D:\\Project\\Step_3\\out\\synthetic_qa.jsonl",
+    "total": 100000,
+    "batch_size": 128,
+    "length": 400,
+    "temperature": 1.0,
+    "top_k": 50,
+    "top_p": 0.9,
+    "no_repeat_ngram": 0
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "status": "complete",
+  "written_total": 40000,
+  "written_this_session": 40000,
+  "dropped_unfinished": 3110,
+  "dropped_malformed": 1129,
+  "minutes_this_session": 75.7,
+  "device": "NVIDIA GeForce RTX 5070 Ti",
+  "args": {
+    "qa": true,
+    "model": "C:\\Step4_fullsample\\Step_3\\models\\gpt2-qa",
+    "output": "C:\\Step4_fullsample\\Step_4\\portable\\..\\..\\Step_3\\out\\synthetic_qa_fullsample.jsonl",
+    "total": 40000,
+    "batch_size": 128,
+    "length": 400,
+    "temperature": 1.0,
+    "top_k": 0,
+    "top_p": 1.0,
+    "no_repeat_ngram": 0
+  }
+}

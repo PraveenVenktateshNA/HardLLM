@@ -1,0 +1,23 @@
+{
+  "data": "D:\\Project\\Step_2\\out\\selected_centroid_eps0.5_t3.jsonl",
+  "train_rows": 15949,
+  "val_rows": 839,
+  "steps": 2991,
+  "minutes": 10.1,
+  "val_loss": 2.838956832885742,
+  "val_perplexity": 17.097920242832533,
+  "eos_learned": true,
+  "args": {
+    "data": "D:\\Project\\Step_2\\out\\selected_centroid_eps0.5_t3.jsonl",
+    "model": "D:\\Project\\Step_3\\portable\\gpt2",
+    "qa": true,
+    "output_dir": "D:\\Project\\Step_3\\models\\gpt2-qa",
+    "epochs": 3,
+    "lr": 5e-05,
+    "batch_size": 16,
+    "grad_accum": 4,
+    "seq_len": 512,
+    "val_frac": 0.05,
+    "max_steps": -1
+  }
+}
