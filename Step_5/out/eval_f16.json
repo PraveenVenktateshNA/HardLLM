@@ -1,0 +1,13 @@
+{
+  "variant": "f16",
+  "tensor_types": {
+    "F16": 197,
+    "F32": 57
+  },
+  "weight_change": 1.79984942379127e-08,
+  "file_gb": 5.992,
+  "answer_nll": 2.3284,
+  "answer_perplexity": 10.262,
+  "answer_tokens_scored": 104197,
+  "minutes": 0.9
+}

@@ -1,0 +1,35 @@
+{
+  "variant": "q8_0",
+  "tensor_types": {
+    "Q8_0": 197,
+    "F32": 57
+  },
+  "weight_change": 0.005661842466310312,
+  "file_gb": 3.187,
+  "answer_nll": 2.3287,
+  "answer_perplexity": 10.265,
+  "answer_tokens_scored": 104197,
+  "demo_answers": [
+    "You are having pernicious anemia. It is due to deficiency of vitamin B-12. Vitamin B-12 is required for normal functioning of red blood cells. So it causes anemia. Treatment is oral or intramuscular injections of vitamin B-12.",
+    "I am sorry to hear about your fathers health issues. It seems like he has developed some infection after surgery. The most common cause of this would be due to the presence of bacteria in the bile ducts which were not removed during the operation. This can lead to infection in the blood stream.",
+    "You may be having some kind of dermatitis or eczema. It can be due to many reasons like allergy, stress, anxiety, hormonal imbalance etc. I would suggest you to consult dermatologist for proper examination and treatment. He may prescribe antihistamines, topical steroids, immunosuppressants, calcineurin inhibitors, antibiotics etc.",
+    "You are having central chest pain which is radiating to left arm. This can be due to musculoskeletal cause or cardiac cause. So better to consult doctor and get done ECG and 2d echo to rule out cardiac cause. If both these are normal then no need to worry about heart diseases. Apply warm water pad on affected areas. Avoid heavyweight lifting and strenuous exercise.",
+    "Ambiasis is caused by infection with a parasite called Entamoeba histolytica. It can cause abdominal pain, diarrhea, fever, nausea, vomiting, and weight loss. Treatment for ambiasis includes antibiotics such as metronidazole and tinidazole, along with supportive care.",
+    "You are having symptoms of dizziness, pins and needles, tingling sensation etc. These symptoms may be due to some underlying cause. So better to consult doctor and get done1. Blood pressure monitoring2. ECG3. Chest x-ray4. TMT5. 2d echo6. Thyroid profile7. Complete blood count8. Lipid profile9. Urine routine and microscopy10. Serum electrolytes11. Liver function test12. Renal function test13. Prolactin level14. Vitamin B12 level15. Vitamin D level16. Thyroxine level17. Fasting blood sugar18. HbA1c19. Serum calcium level20. Serum phosphorus level21. Serum magnesium level22. Serum potassium level23. Serum sodium level24. Serum chloride level25. Serum bicarbonate level26. Serum creatinine level27. Serum urea level28. Serum uric acid level29. Serum albumin level30. Serum globulin level31. Serum total protein level32. Serum cholesterol level33. Serum triglyceride level34. Serum HDL level35. Serum LDL level36. Serum VLDL level37. Serum glucose level38. Serum insulin level39. Serum cortisol level40. Serum",
+    "You may have some benign cyst or fibroid. Or you may have some other lesion like lipoma or neurofibroma. You should go for fine needle aspiration cytology or biopsy of that lump. It will give you exact diagnosis. Then you should take treatment accordingly.",
+    "You may have some soft tissue tumor or cystic lesion in your mouth. You should go for fine needle aspiration cytology or biopsy of that lump. It will give you exact diagnosis. Then you should take treatment accordingly.",
+    "You have irregular periods. So you are taking estrogen and progesterone to regularize your cycles. It is not necessary that you will conceive every month. But if you want to get pregnant then you should take it regularly.",
+    "You have history of kidney infection. It can cause chronic renal failure. So better to consult your doctor and get done routine hologram, urine RE/ME, ultrasound abdomen and pelvis. If needed go for culture sensitivity of urine. Then start appropriate treatment accordingly.",
+    "I am sorry to hear about your husbands' experience with his appendix surgery. It is true that some patients can have very long healing times after their surgeries. However, there are many factors that affect how quickly someone heals after surgery. These include age, weight, general health, nutrition, medications, smoking status, etc. In addition, if the patient has a history of poor wound healing, they may be at risk for having longer healing times.",
+    "As per your query you have symptoms of pain in jaw while chewing which can be due to temporomandibular joint disorder. Need not worry. I would suggest you to visit an oral physician once and get evaluated. Doctor may order x-ray of jaw and take impression of teeth. Doctor may prescribe muscle relaxant like chlorzoxazone along with analgesics like ibuprofen. Doctor may also refer you to physiotherapist for further treatment. Doctor may also recommend splint to wear at night.",
+    "You are having burning sensation while passing urine. It can be due to infection of urinary tract. You should go for routine hologram, random blood sugar, urine routine and microscopy examination. If needed you should go for culture and sensitivity test. You should take complete course of antibiotics as prescribed by your doctor.",
+    "You are having alcoholic hepatitis. It can be due to alcohol intake or other causes like viral infection. You should go for complete blood count, liver function test, viral markers, ultrasound abdomen. Then you should take treatment accordingly.",
+    "Your report suggests that you have high cholesterol level. You should take low fat diet, avoid saturated fats like butter, ghee, meat etc. Take more of fruits and vegetables in your diet. Avoid smoking and alcohol if any. Regular exercise will be helpful. Consult your doctor for further management.",
+    "You are having irregular menses. It can be due to hormonal imbalance or some other cause. I would suggest you to consult a gynecologist and get evaluated. If needed go for hormone replacement therapy.",
+    "You are having history of smoking, surgery and cancer. Smoking is the major cause of all these problems. So quit smoking immediately. If you don't want to quit then at least reduce your smoking habit. It will help you a lot.",
+    "You may have some gastric problem like gastritis or peptic ulcer. You should go for upper GI endoscopy. It will give you exact diagnosis. Then you should take treatment accordingly.",
+    "You have taken antihistamines for your symptoms of dizziness, nausea etc. It is not advisable to take antihistamines for long time as they can cause side effects like sleepiness, confusion, headache etc. If you are still feeling these symptoms then you should consult doctor and get done blood pressure monitoring and ECG.",
+    "PFO is a small hole between two chambers of heart. It is present in all people but it is usually closed by blood clots. In your case there is no clot formation so the hole remains open. This can cause problems like stroke, pulmonary embolism etc. So you should definitely get operated. There are many ways to close the hole. You can discuss with your doctor about it."
+  ],
+  "minutes": 0.9
+}

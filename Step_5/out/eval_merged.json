@@ -1,0 +1,12 @@
+{
+  "variant": "merged",
+  "tensor_types": {
+    "BF16": 254
+  },
+  "weight_change": 0.0,
+  "file_gb": 5.984,
+  "answer_nll": 2.3284,
+  "answer_perplexity": 10.262,
+  "answer_tokens_scored": 104197,
+  "minutes": 1.0
+}

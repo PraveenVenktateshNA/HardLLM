@@ -1,0 +1,36 @@
+{
+  "variant": "q4_k_m",
+  "tensor_types": {
+    "Q6_K": 29,
+    "Q4_K": 168,
+    "F32": 57
+  },
+  "weight_change": 0.06314988632906662,
+  "file_gb": 1.881,
+  "answer_nll": 2.3452,
+  "answer_perplexity": 10.435,
+  "answer_tokens_scored": 104197,
+  "demo_answers": [
+    "You are having Pernicious Anemia. It is due to deficiency of Vitamin B-12. It can not be treated by oral medication. So you need to take injections of vitamin B-12. Intrinsic Factor is produced by stomach cells. If it is deficient then you will not be able to absorb vitamin B-12 from food. So your doctor may order for intrinsic factor estimation also.",
+    "I am sorry to hear about your fathers health issues. It seems like he has developed some infection after surgery. The most common cause of this would be due to the presence of bile duct stones which were not removed during surgery. This can lead to infection in the bile ducts and spread to other parts of the body.",
+    "It is not possible to diagnose your problem without seeing you directly and examining you physically. I suggest that you visit a dermatologist for proper diagnosis and treatment.",
+    "By your history and description, possibility of musculoskeletal pain is more. But better to rule out cardiac cause first because chest pain can also be due to heart diseases. So get done ECG and 2d echo to rule out cardiac cause. If both are normal then no need to worry about heart diseases. Musculoskeletal pain is mostly seen in case of bad posture, long continuous sitting, stress etc. Avoid bad postures in sleep and during day time. Avoid stress and tension. Avoid heavyweight lifting and strenuous exercise.",
+    "Ambiance is caused by infection with a worm called Ancylostoma duodenale or Necator americanus. It causes itching around anus, blood in stool, abdominal pain, nausea, vomiting etc. You can take albendazole 400 mg once daily for 3 days.",
+    "You are having symptoms of dizziness, pins and needles, tingling sensation etc. These symptoms may be due to many reasons like hypoglycemia, low blood pressure, electrolyte imbalance, vitamin deficiency, anemia, thyroid dysfunction, cardiac arrhythmia, epilepsy, multiple sclerosis, Parkinson's disease, stroke, tumors, infections, etc. So better to consult doctor and get done thorough examination of your body and investigations like complete blood count, ECG, lipid profile, thyroid function test, urine and serum electrolytes, glucose, etc. Then you should take treatment accordingly.",
+    "You may have some cyst or fibroid or some other benign tumor. You should go for fine needle aspiration cytology or biopsy of that lump. It will give you exact diagnosis. Then you should take treatment accordingly.",
+    "You may have some soft tissue tumor or cystic lesion in your cheek. You should go for fine needle aspiration cytology or biopsy of that lump. It will give you exact diagnosis. Then you should take treatment accordingly.",
+    "You have irregular periods. So you are taking estrogen and progesterone to regularize your cycles. It is not possible to predict the outcome of treatment. But if you take it regularly then chances of pregnancy are good.",
+    "I would like to know if the pain was radiating to your leg or groin. If yes, then there could be a possibility of a stone in the ureter which needs to be treated by a urologist.",
+    "I am sorry to hear about your husbands' experience with his appendix surgery. It is true that some infections can be treated in the outpatient setting, but if there are signs of infection such as fever, redness, swelling, pus, etc., then you should go back to the doctor. Infection is one of the most common reasons why people have to return to the hospital after being discharged.",
+    "As per your query you have symptoms of TMJ disorder which can be due to misalignment of teeth, clenching of teeth, grinding of teeth, arthritis, trauma etc. Need not worry. I would suggest you to consult oral physician once and go for thorough examination. Doctor may order x-ray of jaw and take impression of teeth. Doctor may prescribe muscle relaxant, analgesics, vitamin B complex, calcium supplements, soft diet, mouth guards, hot compresses, physiotherapy, topical anesthetic gel, anti-inflammatory painkillers like ibuprofen, acetaminophen, etc. Doctor may refer you to orthodontist for further treatment.",
+    "You are having burning sensation after sexual intercourse. It can be due to infection like urinary tract infection or urethritis. Or it can be due to inflammation of prepuce. You should consult your doctor and get done clinical examination of penis and urine routine microscopy and culture. If needed you may need to take antibiotics.",
+    "You are having symptoms of alcohol induced gastritis. It can cause vomiting, nausea, abdominal pain etc. You should avoid alcohol completely. Take proton pump inhibitors like omeprazole or pantoprazole. Avoid hot and spicy food. Avoid junk food. Avoid stress and tension. Be relaxed and calm.",
+    "Your report suggests that you have high cholesterol level. You should take statin medicine like atorvastatin 10\\u00a0mg daily for long time. It will help in lowering your cholesterol level. You should also take low fat diet. Avoid saturated fat, trans fat, junk food, butter, cheese etc. Take more fruits and green leafy vegetables.",
+    "You are having irregular periods. It can be due to many reasons like hormonal imbalance, thyroid dysfunction, stress etc. I would suggest you to consult a gynecologist for proper examination and treatment. You may need some investigations like thyroid profile, prolactin level, ultrasound of pelvis, follicular study etc. Based on reports, you may need medicines like camphene citrate, progesterone etc.",
+    "You are having history of smoking, and you also have history of surgery for thyroid gland. Smoking is the major cause of many diseases including lung cancer. So better to quit smoking as soon as possible. If you want to know about smoking cessation then consult your doctor and take help from him.",
+    "The symptoms you are having could be due to gastritis or peptic ulcer disease. You should take antacid like omeprazole twice daily after meals. If it does not subside then consult your doctor and get evaluated.",
+    "You have taken antihistamines for your symptoms. It is good that you are feeling better now. But if you still have these symptoms then you should take another dose of antihistamine. If you do not get relief after this also then you need to consult a doctor.",
+    "PFO (patent foramen ovale) is a congenital defect. It is present at birth. It is not associated with any disease. So it is not necessary to close it. If you want to close it then there are two options. First option is surgical closure of PFO. Second option is transcatheter closure of PFO. Both these procedures are safe and effective."
+  ],
+  "minutes": 1.0
+}

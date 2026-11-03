@@ -1,0 +1,75 @@
+{
+  "merged": {
+    "variant": "merged",
+    "tensor_types": {
+      "BF16": 254
+    },
+    "weight_change": 0.0,
+    "file_gb": 5.984,
+    "answer_nll": 2.3284,
+    "answer_perplexity": 10.262,
+    "answer_tokens_scored": 104197,
+    "minutes": 1.0
+  },
+  "f16": {
+    "variant": "f16",
+    "tensor_types": {
+      "F16": 197,
+      "F32": 57
+    },
+    "weight_change": 1.79984942379127e-08,
+    "file_gb": 5.992,
+    "answer_nll": 2.3284,
+    "answer_perplexity": 10.262,
+    "answer_tokens_scored": 104197,
+    "minutes": 0.9,
+    "llamacpp": {
+      "ppl": 15.1637,
+      "plus_minus": 0.25294,
+      "device_lines": [],
+      "tokens": 51200,
+      "minutes": 0.2
+    }
+  },
+  "q8_0": {
+    "variant": "q8_0",
+    "tensor_types": {
+      "Q8_0": 197,
+      "F32": 57
+    },
+    "weight_change": 0.005661842466310312,
+    "file_gb": 3.187,
+    "answer_nll": 2.3287,
+    "answer_perplexity": 10.265,
+    "answer_tokens_scored": 104197,
+    "minutes": 0.9,
+    "llamacpp": {
+      "ppl": 15.167,
+      "plus_minus": 0.25299,
+      "device_lines": [],
+      "tokens": 51200,
+      "minutes": 0.2
+    }
+  },
+  "q4_k_m": {
+    "variant": "q4_k_m",
+    "tensor_types": {
+      "Q6_K": 29,
+      "Q4_K": 168,
+      "F32": 57
+    },
+    "weight_change": 0.06314988632906662,
+    "file_gb": 1.881,
+    "answer_nll": 2.3452,
+    "answer_perplexity": 10.435,
+    "answer_tokens_scored": 104197,
+    "minutes": 1.0,
+    "llamacpp": {
+      "ppl": 15.3121,
+      "plus_minus": 0.25465,
+      "device_lines": [],
+      "tokens": 51200,
+      "minutes": 0.2
+    }
+  }
+}

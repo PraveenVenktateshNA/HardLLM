@@ -1,0 +1,265 @@
+{
+ "url": "http://127.0.0.1:8080",
+ "version": "q4_k_m",
+ "checked": "2026-10-29 10:34",
+ "failures": [],
+ "answers": [
+  {
+   "question": "Hi I have been lacking in b 12 for about ten years and so I have an injection into my muscle every month which hasworked very well, recently my doctor wants me to have a blood test to check my b 12 levels and my intrinsic factor . Has something new been found out about the treatment of pernisios anemia as I don t think I would be able to absorb tablets ?",
+   "shown": "You are having Pernicious Anemia. It is due to deficiency of Vitamin B-12. It can not be treated by oral medication.",
+   "seconds": 2.8,
+   "tokens": 60,
+   "dropped": 3,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "Hi, my 82.5 year old father with a 4- month old pacemaker recently had his gallblatter removed. He was in the hospital for an entire week because he 1) filled up with fluid on his left lung and 2) E. coli was found in his blood. After a week in the hospital he was sent home with a potent antibiotic that is administered via a pic(?). My question....what question(s) should we be asking his infectious doctor and surgical doctors at his one week follow up appointment. Thank you Liz PS. ertapenem IV antibiotic",
+   "shown": "I am sorry to hear about your fathers health issues. It seems he had some infection in the blood which was treated with antibiotics. The next step would be to find out what is causing this infection and treat it accordingly.",
+   "seconds": 2.3,
+   "tokens": 45,
+   "dropped": 0,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "Ok please i need another oppininon. i mean it hurts a lil just to have my shirt touch the skin. thanks Jackie Rorick South Fla",
+   "shown": "You may be having some skin condition like psoriasis or eczema. Or you may have some infection in your skin.",
+   "seconds": 2.7,
+   "tokens": 65,
+   "dropped": 2,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "Hello, I started feeling a pain in the middle of my chest yesterday while I was at work. (I have an office job). It continued through last night and today. It is not so much of a sharp pain, but more of a extreme pressure feeling. It intensifies as I take a deep breath in, when I go from sitting to standing, and the worst when I lay flat on my back. It has gotten worse since yesterday. Is this something minor, or that should be checked out before Monday?",
+   "shown": "From your description, possibility of musculoskeletal pain is more. Musculoskeletal pain is mostly seen in your case.",
+   "seconds": 4.6,
+   "tokens": 106,
+   "dropped": 7,
+   "alert": true,
+   "problems": []
+  },
+  {
+   "question": "hi, im jane my boyfriend has an ambiases he said hes stomach is aching a lot especially on the left side,and hes balls also is aching hes thinking that its bec. of hes ambiases,is he right about that and what medicene should he take,he got the ambiases from drinking top water here in the philippines.",
+   "shown": "Ambiance is caused by infection with a worm called Ancylostoma duodenale or Necator americanus. It causes itching around anus, blood in stool, abdominal pain, nausea, vomiting etc.",
+   "seconds": 3.0,
+   "tokens": 68,
+   "dropped": 1,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "Hello, I m a 26yr old female. I am over weight and a smoker. I THINK I have an anxiety problem because I get so paranoid I ll get a migraine (I have not ever had one) that I don t want to leave the house. Anyway, for almost three years I have had dizzy spells. I suddenly get dizzy mostly in the afternoons but can occur anytime. I do not feel like the room is spinning, just my head. I get lightheaded, or a very heavy headed feel. I get pins and needles in arms and legs very quickly and sometimes get a tingly feeling in bizarre places like one cheek. I constantly yawn and have had a brain ct and chest X-ray which were both clear. I have been diagnosed with pcos and am not taking anything for that. Is it my weight and smoking? Or could there e something more sinister?",
+   "shown": "You are having symptoms of anxiety, dizziness, pins and needles in arms and legs etc. It seems to be related to your obesity and smoking habit. You may have anxiety disorder.",
+   "seconds": 6.0,
+   "tokens": 140,
+   "dropped": 6,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "Hi, I have a lump above and to the right of my clitoris. The lump isn t really visible but you can feel it when you apply pressure to it. It is about the size of a pea. It is constantly hurting and it just started today. There is no drainage at all. It is very sore. J have no idea what it is!!",
+   "shown": "You may have some cyst or fibroid.",
+   "seconds": 1.8,
+   "tokens": 39,
+   "dropped": 3,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "Hi, i have recently found a ball like object on the right side of my jawline about the size of a large grape. Witch was making the whole right side of my jaw swollen, I ve also become extreamly I ll with the following",
+   "shown": "You may have some soft tissue tumor or cystic lesion in your cheek.",
+   "seconds": 1.9,
+   "tokens": 45,
+   "dropped": 3,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "I took clomid 50 mg on 3-7 CD.got an US done on CD13,there were 3-4 small follicles in both ovaries,endometrium was 4.9mm thick.HSG report was normal.Hv irregular periods.taking oosure since last mth...dr has advised Evadiol and Meprate BD for 10 days now.what does this mean?Is there no chance of conceiving this month?",
+   "shown": "I would like to know if you are trying to conceive naturally or with the help of IVF.",
+   "seconds": 4.3,
+   "tokens": 100,
+   "dropped": 3,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "hello doc,this is ann im 30 years old.i had a kidney infection 9 years ago but it cured.i sometimes felt not comfortable with my lower back and its always pain.please give me an advise coz i took dong quai a chines herb syrup but after a week of take i suffer a very very pain in my lower back.i took this herb coz it says it will make a women more fertile.i want to get pregnant so i take this.please HELP! thank you...have a good day doc.",
+   "shown": "I would like to know if the kidney infection was treated with antibiotics. The pain in lower back could be due to muscle spasm or nerve compression.",
+   "seconds": 2.8,
+   "tokens": 61,
+   "dropped": 2,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "My husband had an open appendectomy in May of 2012. His incision was ultimately reopened approximately 2 weeks after due to an infection right in the surgeons office. The opened wound measured 10 cm X 5 cm. Are wounds that large typically reopened in the surgeons office like that? We were completely surprised that he wasnt readmitted to the hospital and the wound opened and cleaned out in an operating suite, he just did it in the office without sedation or any sort of pain killer. His wound was left open for a few weeks and then he was put on a wound vac. The wound closed and the surgeon had to reopen it due to the fact that he now had a MRSA infection that developed in it. The wound did not close until October, so it took a total of 5 months to heal. He was prescribed an antibiotic 8 times from when he was discharged from the hospital until the wound closed. Is this a standard of care for this type of incision?",
+   "shown": "I am sorry to hear about your husbands' experience with his appendectomy and subsequent infection. It is not uncommon for patients to have infections after surgery, especially if they are immunocompromised or diabetic. The fact that he was treated in the office setting rather than being admitted to the hospital may be a reflection of his overall health status. I am glad that he was able to recover from this infection and get back to normal activities.",
+   "seconds": 4.2,
+   "tokens": 88,
+   "dropped": 0,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "Just since this June I have been experiencing some problems with what seems to be TMJD. I get pressure in the side of my jaw when chewing, talking, or anxious. I have flare ups, sometimes its better depending on what I have been eating. Im very confused because Ive been getting a lot of different opinions. My gerneral dentist told me that there isnt much that can be done other than monitoring what I eat, taking anti-inflammatory, using a night guard, and using heat. An orthodontist told me (at the consultation) that my bite is off and it was causing my TMD issue because it is making the muscle flex constantly because of being out of allignment. He told me that I need Orthognathic surgery to split and widen my upper jaw before he will consider putting braces on me. An oral surgeon I went to said that I should not have surgey because it could make it worse and he doesnt detect a joint problem and told me that braces would not help. Im so confused now, any imput would be appreciated. Im not concerned with getting braces or fixing my bite unless it would help the TMJ/D. Im a little concerned about having such a major surgery if there is a possibility I will still have the TMD or worse problems yet, I have a two year old. Could pulling teeth possibly help anything? Thank you for your time.",
+   "shown": "As per your query you have symptoms of TMJD which can be due to many reasons like stress, anxiety, grinding and clenching of teeth, arthritis, trauma etc. Doctor may order x-ray of jaw and take impression of teeth for making mouth guard.",
+   "seconds": 5.2,
+   "tokens": 108,
+   "dropped": 6,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "Had sex 3 days ago without using lubricant. My partner is 48 and she is dry, should have used lubricant. As a result straight after sex felt discomfort on inside of foreskin.When I urinate no pain but if any urine gets to tender area feel stinging sensation. Have had this before but not quite this bad.Will see doctor in 2 or 3 days if it has not improved. Any suggestions?",
+   "shown": "No explanation to show for this question: the model only gave advice, which this demo hides. Try describing the symptoms in more detail.",
+   "seconds": 2.2,
+   "tokens": 47,
+   "dropped": 2,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "Lately, I have been getting very sick the next day after only a few drinks 2-4 over a span of 3-4 hours. Sick to the point where my head pounds, i vomit frequently, nothing stays down (water, bread) and only start to feel better in the evening (6-7pm) I have plenty of food in stomach though. Also, had half a beer tonight and felt sick instantly, now my liver is aching.",
+   "shown": "You are having alcoholic hepatitis. It can be due to alcohol intake or other causes like viral hepatitis, autoimmune disease etc.",
+   "seconds": 2.5,
+   "tokens": 55,
+   "dropped": 2,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "Hi. I received my blood test back and this is what was passed on by my doctor and now I am waiting to see and internal specialist",
+   "shown": "Your report suggests that you have high cholesterol level.",
+   "seconds": 3.0,
+   "tokens": 75,
+   "dropped": 5,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "Hello Dr,I am trying to conceive for past 6 months. This time we had regularly. My periods also came and was not like the usual one (flow is less) on the third i got blleding with heavy clots for 5mins continuously and AF stopped. When i had sex on 5th day i started to bleed (which is not normal because, i have done this before and i did not get bleeding)..",
+   "shown": "You are having irregular periods and also heavy bleeding during the period. It can be due to hormonal imbalance or some other cause. Based on the reports he will treat you accordingly.",
+   "seconds": 3.2,
+   "tokens": 73,
+   "dropped": 2,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "I have smoked cigarettes for nearly 20 years. About a year ago I had Thyroid Surgery , The Dr. did a great job. But here recently I feel like I have something caught in my throat , Sometimes it hurts to swallow and it really hurts when I smoke a cigarette. When they took my thyroid out they found cancerous cell. What can I do to keep my throat from hurting so much ?",
+   "shown": "You are having history of smoking for 20 years, and you had surgery for thyroid cancer. Now you have symptoms like something caught in the throat, sometimes it hurts to swallow and it really hurts when you smoke a cigarette. You are having history of smoking so possibility of lung infection is more.",
+   "seconds": 4.2,
+   "tokens": 94,
+   "dropped": 3,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "I have had steady pain in the middle of my abdomen between belly button and rib cage, for the past 5 days. Doesnt seem to be affected by food. Occassionally gets severe for a minute or two then returns to dull pain. A little burping but no real heartburn. Tender to push on area and somewhat hard. No fever. Any ideas?",
+   "shown": "The symptoms you have mentioned are suggestive of an acute abdomen. You may require investigations like blood tests, ultrasound scan, X-ray etc. to confirm the diagnosis.",
+   "seconds": 2.3,
+   "tokens": 48,
+   "dropped": 1,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "I was stung in the mouth (under tongue) by a honey bee a few hours ago. I took an antihistamine, which made me feel better, but I am concerned it will wear off. I ve been lightheaded/dizzy, cold (actually ended up with a little fever), bad cramps in my abdomen, and nausea. Isn t it took late to be having a reaction from a bee sting? Should I keep taking the antihistamine?",
+   "shown": "You have taken an antihistamine for your bee sting.",
+   "seconds": 3.5,
+   "tokens": 78,
+   "dropped": 3,
+   "alert": true,
+   "problems": []
+  },
+  {
+   "question": "My name is kiran, this is regarding my wife s health..She is pregnant and when she checked with doctor regarding normal or operation..Doctors preferred operation is best, by because they told she has a hole in the heart(PFO) 1mm...It is not good to have normal delivery better to chose Operation... My questions are ..is this correct...how to refill that hole in future ..what treatment is good for that.....can my wife go for normal delivery",
+   "shown": "PFO (patent foramen ovale) is a congenital heart defect. It is present at birth and usually closes by itself within 6 months of life. If it doesn't close, then it can cause problems like stroke, pulmonary embolism etc.",
+   "seconds": 3.4,
+   "tokens": 75,
+   "dropped": 1,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "i am having my left chest pain sharpy and im unable to breath",
+   "shown": "From your description, possibility of musculoskeletal pain is more. Musculoskeletal pain is more likely in your case.",
+   "seconds": 4.2,
+   "tokens": 106,
+   "dropped": 7,
+   "alert": true,
+   "problems": []
+  },
+  {
+   "question": "I am having sharp pain in my left chest and I am unable to breathe",
+   "shown": "From your description, possibility of musculoskeletal pain is more. Musculoskeletal pain is more likely in your case.",
+   "seconds": 4.3,
+   "tokens": 112,
+   "dropped": 7,
+   "alert": true,
+   "problems": []
+  },
+  {
+   "question": "My 2 year old has had a fever of 104 for three days",
+   "shown": "Fever of few days without any localizing signs could as well a viral illness. Usually rather than fever, what is more important is the activity of the child, in between 2 fever episodes on the same day. If the kid is active and playing around when there is no fever, it is probably viral illness and it doesn't require antibiotics at all. Once viral fever comes it will there for 4-7 days.",
+   "seconds": 3.3,
+   "tokens": 86,
+   "dropped": 0,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "Burning sensation when I urinate since yesterday",
+   "shown": "The burning sensation in the urine is due to infection of urinary tract. It can be due to bacterial or fungal infection.",
+   "seconds": 2.0,
+   "tokens": 51,
+   "dropped": 2,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "Itchy red rash on my arm for a week, no fever",
+   "shown": "The symptoms you have mentioned are suggestive of an allergic reaction. Allergic reactions can be caused by many things like dust, pollen, food, insect bites etc.",
+   "seconds": 2.3,
+   "tokens": 58,
+   "dropped": 2,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "what is diabetes?",
+   "shown": "Diabetes is a disease in which the body does not make or use insulin properly. Insulin is a hormone that helps glucose (sugar) get into cells to give them energy. When you have diabetes, your blood sugar levels are too high because your body doesn't make enough insulin or it can't use its own insulin well. Diabetes can be caused by genetics and environmental factors such as obesity, lack of exercise, and stress. It is a serious disease that affects millions of people worldwide.",
+   "seconds": 3.9,
+   "tokens": 99,
+   "dropped": 0,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "hello",
+   "shown": "Hello. Describe what you feel, for example where it hurts, since when, and anything that makes it better or worse.",
+   "seconds": 0.0,
+   "tokens": null,
+   "dropped": null,
+   "alert": false,
+   "problems": []
+  },
+  {
+   "question": "i am having my left chest pain sharpy and im unable to breath",
+   "mode": "chat",
+   "shown": "From your description, possibility of musculoskeletal pain is more. But better to rule out cardiac cause first because chest pain can be due to heart diseases also. So get done ECG and 2d echo to rule out cardiac cause. If both are normal then no need to worry about heart diseases. Musculoskeletal pain is more likely in your case. So follow these steps for better symptomatic relief. Avoid heavyweight lifting and strenuous exercise. Avoid movements causing pain. Apply warm water pad on affected areas.",
+   "seconds": 4.1,
+   "problems": []
+  },
+  {
+   "question": "I have burning pain in my upper stomach after meals for 2 weeks",
+   "mode": "chat",
+   "shown": "The symptoms you are having could be due to gastritis or peptic ulcer. You should take antacid like omeprazole and proton pump inhibitor like pantoprazole along with prokinetics like domperidone. If the problem persists then you need to consult a gastroenterologist for further evaluation.",
+   "seconds": 2.5,
+   "problems": []
+  }
+ ]
+}
