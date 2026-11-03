@@ -1,0 +1,147 @@
+
+======================================================================
+WORST-MATCHING (dropped)
+======================================================================
+[-0.107] Q: Hi...Ive been having some abdominal pain while drinking coffee for over 2 years now. I think it could be a yeast infection, but I have never had that before. I have been on a diet and exercising and it has not changed. I take a lot of ibuprofen and I drink beer or ale to relax. I dont feel sick for 
+        A: I carefully read your query and understand your concerns! I will try to help you as much as I can.
+
+[-0.095] Q: I was playing basketball today and I started to get a bump on my head when I hit it with a baseball bat. I just stopped. It feels like the bump is a pimple and then it goes away and goes away. What could be wrong?
+        A: I hope this answer helps you. Please let me know if there are any other follow-up questions you'd like answered. Please do not hesitate to ask in case of any further doubts. N. Senior Surgical Specialist.
+
+[-0.088] Q: Hi, Im a 27 year old female and have a severe lower back pain. My pain is also very bad (I have only 2 vertebrae on my lower back) and I am very tired and a lot of blood is coming out of my right lower right rib cage. Is there anything else I can do to relieve my symptoms?
+        A: If my answer is helpful for you, please give me a brief summary of your query in detail.
+
+[-0.060] Q: i had an unprotected sex yesterday and my husband had a second test done today and I have a lot of pain in my stomach and it makes me feel like there is something wrong with me. He said it was ok. What could this be and he wanted to know what could it be?
+        A: By what you quote I feel that you are trying to misunderstand the nature of the problem and your concern.
+
+[-0.056] Q: Hi, i have a question and i need your help
+        A: As per your query it seems that your symptoms could be related to the spasms that can be felt during spasm or the onset of pain. I would suggest performing the following tests to rule out the possibility of any possible disorder causing the spasms or any infection associated with them. USG2) CT scan3) MRI of the spasm abdomen. The spasms may or may not be caused by any medication. Any medicines th
+
+[-0.044] Q: I ve got a sharp sharp pain on my right side of my neck. Its only in the center and it doesnt ache. A few days ago it stopped, but I just dont feel anything right anymore. It has since gone away but I have a really bad headache that comes and goes. It is bothering me alot and when I try to stop the 
+        A: In my opinion you should go for CBC (Complete blood count) and PFT (Pulmonary Function Test). PFT is needed to rule out lung infection and bronchitis. PFT gives you complete picture of severity of the disease and also lung function test to rule out lung infection. You should take inhaled bronchodilators and inhaled corticosteroid (ICS) in your dose.
+
+[-0.041] Q: My 10 month old has had a fever and cough for the past week. It started out as a mild cold and then increased as it went on. Her body began to ache and she starts getting red spots on her skin all over. It starts to itch when she lays down in bed. I am unsure what it is and I am not sure what else c
+        A: I will try to answer your concerns. If you are not satisfied with the answer then please contact me again. I will be happy to answer your questions. You can also ask me a direct question in every aspect of your query. I will gladly answer your questions.
+
+[-0.036] Q: my boyfriend is in the hospital with a large cyst in the middle of his chest. His surgeon has given him a cortisone shot to help him, but he is very much upset that the cortisone is not helping him. What are the chances that his chest is going to swell as the cortisone shot is not helping.
+        A: Hope this will help you. Please revert if you have additional questions or follow-up questions to this page.
+
+[-0.023] Q: Hi, I ve had two surgeries on my heart to remove a lipoma from one. The third surgery involved inserting a tube into my heart to replace a ruptured heart with an open one. On the second surgery I had a surgery on the sternum to remove my left ventricle from the outside of my chest. I have also had b
+        A: We have already begun the work on your problem and are now in the process of trying to find the best options for you.
+
+[-0.019] Q: Hi, I was wondering if you could answer my question
+        A: The first thing to consider is that if you have been treated with analgesics then your symptoms can be controlled by using a combination of antiseptic, painkillers and analgesics. However, since your pain is not controlled by analgesics, I think you need to consider some other possibilities for control such as if you are taking more medications in the future. Regarding your pain, I feel that it de
+
+[-0.014] Q: I was on ice at the beach last month when I collided with a skateboard, and the impact hit my head. I woke up today with swelling on my face and head. I have trouble swallowing, especially the size of a baseball. I had two blood tests done, one positive, and a second negative. I am a 54 year old fem
+        A: You can visit me in person or on the phone at 1-888-723-8617. If you require any clarification, I will gladly help.
+
+[-0.012] Q: I ve had a small bump on the bottom lip at the back of my right ear that seems to be about the size of a quarter inch. It also appears to be inflamed with the touch of a hard hard piece of plastic. I ve had the same for about a week now and have gotten really angry with the doctors. They have called
+        A: If you have not told me the answer I will advise you the most important. If you have some other answer I will advise you the best.
+
+[-0.010] Q: i have a tooth infection and it has become much worse the first time i checked it the dentist said i have a little bit of bleeding and a sharp pain in the center of my tooth . i have had some infections in my body so i checked my blood tests and everything was normal. what could be the reason i have
+        A: I hope I have answered you query. I do hope that you are getting the answer you are looking for. Please feel free to contact me again with any further questions. You can also write to me directly in every time you need any kind of help in this regard.
+
+[-0.010] Q: hi there and i have no money, I am scared but i have a new girlfriend. she wants me to take her in as i dont want to make her feel so weak and scared.
+        A: Based on the facts of your query, it seems that you are suffering from chronic OCD. Please follow these steps for better symptomatic relief. Keep an eye on your sleeping patterns. Do regular deep breathing exercises, sleep sound sleep sound sleep sound, so that you can be relaxed and awake. Avoid stress and tension. Do regular exercise. Apply warm water pad on affected areas. Avoid junk food. Avoi
+
+[-0.008] Q: Hi, I just want to ask some questions
+        A: I have a very healthy young son, and he is a very good football player. He has been on the field for the past four weeks, I believe. I think that he has a severe headache, especially in the morning. I have been looking for a cause and doctor, and they said it may be a nerve related to something going on in his head, but I am wondering if that is possible? Does the headache sound like something is 
+
+
+======================================================================
+JUST BELOW THE CUTOFF (dropped)
+======================================================================
+[0.570] Q: I am 38 years old female, 5ft 10inches, and weight about 170. I have an ultra sound at the time of the sound and have been having severe chest pain all day and at night. I have no history of heart problems, no cancer in my past and I am also experiencing mild back pain. Do you think this could be a 
+        A: Chest pain (bruised and stiff) and chest tightness is not commonly associated with a heart problem. These symptoms could be because of bronchitis or obstructive lung disease (OPD) or pleural effusion (plural). I would recommend checking with pulmonologist for your exact diagnosis. For this we need to exclude both HERD and HERD-related pleural effusion. HERD and HERD-related pleural effusion are al
+
+[0.570] Q: I have a history of high blood pressure. Recently I have had severe headaches, dizziness, stomach upset, and high blood pressure. My dentist prescribed me with antispasmodics and a nasal decongestant. My doctor told me to take a lower dose of diuretics. This did not work and the headache became wors
+        A: This is a serious concern as I have advised the family doctor for you. The antihypertensive medications might increase blood pressure as a result of some allergic reaction, and you should stop the medication for a long time, in the meantime you can start getting the antihypertensive medications from a pharmacy. If it is a viral infection in the blood or in the urine then it would be a sign of an a
+
+[0.570] Q: I had a very hard hard time breathing and have been in the hospital for days. I started having a hard time breathing for the first time when I got into the hospital. The nurse said I had a soft heart. My heart started beating very fast but after 3 minutes it stopped. I started to have pain in the ba
+        A: You have been treated with anti-allergic medicines for the chest pain, but it is not life threatening. So, it would be better if you are a regular person, and avoid strenuous exercise, avoid alcohol, and take a high calorie diet, if not already done. Have some pain relief by inhaling carbonated oxygen, if required. Avoid bad smoking, especially if you are in the habit of smoking. Avoid hot and spi
+
+[0.570] Q: hello doc, i am a 46 year old male suffering from asthma for 6 months now. i was consulted for a random breath test and the results came back negative. i had a history of lung cancer for past 3 years. I also had lung cancer in my lung which was removed and treated for 5 years. I have no symptoms but
+        A: You are having bronchodilator resistance of 5 years and treatment can be done. So, your history has shown you to have low B12 and high B12. So, a lung transplant would be the best option. Please don't give more weight to weight.
+
+[0.570] Q: Hi, Ive been having back pain with a lot of movement, the last two days I haven t had a chance to work out. I have to move around to get a better angle at work, and also have to stretch, which is causing some pain to my neck area. The pain is just starting to fade but I ve been feeling it for awhile
+        A: Your symptoms could be due to muscle spasm in liver. This can be due to some infectious and non-infectious disease like hepatitis or lymphocytic arthritis. I would suggest you to consult your general physician to rule out such a condition. If it is not ruled out, you can undergo some investigations like x-rays of liver, liver function tests, CT thorax and CT thorax to see if you have some other pr
+
+[0.570] Q: hello my daughter is 11 weeks old, has been taking diclofenac (a steroid) for 2 days, she is a little more than normal, she is in good health, is very alert, seems to be getting better, but is now very tired, her stomach is hurting and she is feeling really sick, please help, can you advise what can
+        A: Since she is in good health, I will advise you to consult a pediatrician for proper evaluation and management. As per your query the pain she is feeling is due to an infection. As the doctors are doing a thorough clinical evaluation, and as they can not help with the diagnosis, we need to assess her to know whether any other possible causes of this problem. If she is not getting any improvement, t
+
+[0.570] Q: i was diagnosed with type 2 diabetes 3 months ago my doctor said that he said it was type 2 diabetes for 3 months now but i was put on medication for this. the next day i was having blood work done again and it came back very positive and my doctor prescribed me the tablets and i am feeling better. 
+        A: In my opinion, you are mostly having type 2 diabetes. There is no need to worry about these diseases. So better to stop diabetes medicines. You can start statins like statin or levocetrizine combination. Regular exercise and regular exercise also help in decreasing inflammation. So avoid stress and tension. Avoid junk food, smoke, alcohol and caffeine.
+
+[0.570] Q: I have mild depression and am feeling better today. My doctor just recently suggested I get an appointment with an psychiatrist and I had some medication in place for a couple of weeks and now my symptoms have decreased with the new medication. Do you have any suggestions for me?
+        A: There are certain medications you can take for depressive disorders which are commonly used in treatment. I suggest you to consult a psychiatrist for evaluation and treatment. Medicines which you can take for depression include fluconazole(Dexamethasone) and methotrexate (Viagra). In addition, you can take antianxiety medication and a metronidazole tablet for fear of being depressed. In addition, 
+
+[0.570] Q: My father is a smoker . He had a gall bladder transplant two years ago . He is taking an anti cancer shot now. He is also having problems with the flu, fever, nausea, vomiting, heartburn, headaches. Is there anything that can help him?
+        A: After surgery, your father is suffering with high fever, vomiting, heartburn and headache. In the meantime, I suggest you to continue anti-fungal medicines like diclofenac 400 mg and montelukast 500 mg. He should go to doctors tomorrow for further investigation.
+
+[0.570] Q: I am a 35 year old female, and I had my heart checked by cardiologist in 2006. He said the heart was normal and gave me some injections. I had been prescribed a statin for hypertension but I was fine until 2009, when I noticed the statin had helped a little bit and started getting better. A few mont
+        A: In my opinion the statins for the hypertension are good and your symptoms have improved. As you have not mentioned your age and have not mentioned your diet you will be alright. The statin also has an antihypertensive effect. I advise you to use the low dose statin for 3 weeks. The statin will help in reducing your BP and blood pressure by making your stomach discharge more fluid and relieving pre
+
+[0.570] Q: i have a feeling of tingling/ burning in my left foot. I have had pain in it for over a year now and I have always been on a low dose of antihistamine. Also, it has made me go to bed in the middle of the night and not feel good and sometimes it makes me go up and walk into bed. This could be my foot
+        A: There are different types of arthritis that may cause tingling. These tend to worsen in people who have been taking a high dose of anti-inflammatory medicine. Some people who have arthritis may experience tingling or numbness and/or tingling in the palm of their hand. For this reason, consult a general physician for investigations and investigations. The best way to diagnose a specific cause of ti
+
+[0.570] Q: I have had a bump in my abdomen for about 2 weeks now, and it is swelling pretty fast. It is extremely painful and it hurts when I rub it. I am also getting a lot of light headed and redness, and a small amount of pinkish or red spots on the back of my breasts. What could it be? I have had a blood c
+        A: You might have some enlarged lymph nodes in abdomen or enlarged lymph node in breast. You should go for ultrasound examination and PFT (Pulmonary Function Test). If PFT is normal then no need to worry about it. Consult your doctor and take treatment accordingly.
+
+[0.570] Q: I have a hard lump under my stomach near the bottom of my stomach. About 1/2 inch below the colon, and I can feel the lump growing at the tip of my belly button and is very painful. The lump is a little larger than my stomach button but it is small compared to my breast. It is not lumpy and doesn t 
+        A: You might have some other problem which could be related to this lump. It might be a viral infection, which you can go for. I suggest you to get your stool samples tested for PUB, which might be suggestive for PUB. In my opinion you should get the blood and urine routine done, and if everything is fine then you should get your prescription medicines.
+
+[0.570] Q: I have had a very painful disc bulge for almost two months now and have had no luck with getting them removed. Ive been told by doctor I have a lump on my right leg on the right side. I am very concerned. I have had several back surgeries but I have never had one of these back issues. They are on my
+        A: The lump on the right leg could be a simple torn ligament and that could be due to hernia. I would suggest you to consult a general surgeon or orthopedic surgeon in your area who will evaluate the condition and do some investigations such as MRI, LFT, FNAC, and ultrasound. Also, you need to do blood tests to know the condition as to whether it is an internal or external cause. You can also apply w
+
+[0.570] Q: My 12 year old is suffering from fever and cold. She is on meds. Last week she vomited 4 times. Her doctor prescribed antibiotics and advised her to take ibuprofen for 7 days. Today she had a headache and she is very tired but she feels fine. The fever is not gone but she is tired every day.
+        A: Your child may have fevers due to high temperature or fever. Fever may cause shortness of breath. Cold also causes fatigue and headache. So don't worry. This may be due to cold, viral or bacterial infection.
+
+
+======================================================================
+RANDOM KEPT FOR TRAINING
+======================================================================
+[0.664] Q: Hi Dr.. My husband, who is 34 years old , has had several episodes of stomach pain from 4 years back. He is taking tablets for ancunic acid.. And he is not eating healthy food. We have taken him for a couple of days to try to get him to eat but he is not getting better. What should we do
+        A: He is getting symptoms of vomiting and diarrhea from 4 years. He is taking medicines for stomach pain as suggested by you. He is taking it without any clinical signs. If the symptoms are very severe it could be due to gastritis. So take him under supervision and consult your treating doctor for proper evaluation and further management. He needs proper medical treatment.
+
+[0.843] Q: hi, im 22 years old and i have some symptoms of depression , anxiety etc. I had a cardiac arrest 2 years ago. but was treated with ibuprofen and then with diclofenac for 4 months. my psychiatrist advised me to take citalopram in a week but i dont feel good and i need to see my doc. Is the medication
+        A: You should definitely take citalopram in the week leading up to the end of the treatment as well as take ibuprofen and diclofenac for 4 months as well as take acetaminophen as prescribed by your psychiatrist. I suggest you not to take the medication for more than 48 hours after the first bout of the medication, however, if there is a prolonged course of medications in the meantime, you can do so w
+
+[0.626] Q: I have a question about my daughter that I am not sure if I am supposed to ask because the answers I have provided indicate that she has severe stomach pain that radiates to her right abdomen. She s been vomiting a lot, but the last few days it s only noticeable if you sit and take a sip of water. W
+        A: This kind of problem may not be caused by her vomiting, but is related to her weight loss. If she was in the ideal age, she should be overweight, lose weight, not obese, and have some other lifestyle changes like regular exercise and avoid salt. This kind of problem is very common in mothers and should not be ignored. So, I suggest you to visit a specialist. Get her a stool microscopic examination
+
+[0.626] Q: Hi doctor, My dad is 80 year old, is diabetic, i had checked his blood pressure on the 11th of January last year. He was in hospital for two days with high blood pressure. He was discharged from hospital on Monday. But he was given the medication by Dr. TSH (1.8 mg) on Saturday morning, and yesterda
+        A: It seems that you are diabetic. The reading is normal. You may try reducing blood pressure as well. But it is not advisable to try any medications without taking the advice of a specialist.
+
+[0.577] Q: I have a hard lump on my lower back that is slightly swollen and it is a bit hard to walk. Its small and does not hurt, but it is painful. It comes and goes and is painful only when I push on it. It has been swollen with every bit of the swelling, and its constantly sore to touch. I am an overweight
+        A: Your lump could be a fracture from the lump which you had just mentioned. I would suggest you to visit your orthopedic surgeon and have a careful physical examination, and if it is a fracture or is an abscess, an x-ray of your body would be necessary. It would help you to decide whether it would be a fracture or is a fungal infection. Please take a course of antibiotics and painkillers if necessar
+
+[0.627] Q: Hi. Im a female who is 63 years old and currently have pain in my chest that starts right after eating, gets worse within 5 to 10 minutes and goes back in about a week and I had a cardiac work up. There was nothing wrong with me and just wanted to know if i have a heart problem or just my chest hurt
+        A: Possibility of arrhythmia at this time is very much more in your case. It seems that due to excessive amount of fat deposition in the upper part of your chest. It is due to a fatty mass deposition which causes constipation and weight gain. So I would suggest you to start taking a nutritious diet and get done lipid profile and total cholesterol. You may need analgesics for some times.
+
+[0.677] Q: hello doctor iam suffering from upper abdominal pain on right side. iam suffering from high grade acidity (no bowel movement) for last one month. and I am getting pain in the left side of stomach and left side. iam having fever and pain in right upper abdominal area. is this ok?
+        A: You are having pain in left upper abdominal area due to acidity in right upper part. I would suggest you to consult gastroenterologist and get done Clinical examination2. PUT (Pulmonary Function Test). You may need further examination of pulmonologist. If PFT does not help you, then you may need antibiotics.
+
+[0.586] Q: I have had a hard time getting up. I am 36 years old with a 4 inch lower back/chest pain, I have had back pain for years but not to this extent and it doesn t seem to have eased at all. I have pain in my right foot which is a painful bump. It feels like I have a very large knot on my foot. I also ha
+        A: You have pain in the right foot and pain in right side of foot. The knot and bump on your left foot can be due to the painkiller used in your case. It could be due to a ligament injury or musculoskeletal pain. Treatment of it is physiotherapy (in your case a lot of muscle strengthening and stretching). If there is no improvement then it is due to a muscle spasm causing it. This can be corrected wi
+
+[0.619] Q: I have had a pain in my right side on my lower left side. I have been in a lot of pain and they say there is a lump in my right hand. It started on the right side in the middle of my hand and gradually moved to my right wrist area, but not much. I feel very weak and I just feel a burning sensation i
+        A: You may have mild to moderate to severe pain in your upper right side. In this position the lump may be a bulging disc. I recommend doing warm saline gargles and do some muscle relaxant such as paracetamol. If the lump is painful then it needs to be ruled out as this is not an autoimmune response.
+
+[0.667] Q: I have pain in my left arm that hurts in the middle of my arm when i press on it. It comes and goes throughout the day. It goes away once i squeeze the pain. It never returns. It hasnt gotten better but it has not been gone for about a month now. i have no allergies or anything. I am on meds for the
+        A: Cause of pain on right arm for some time is unknown. However, it can be a muscle spasm, inflammation or muscle weakness that is due to anxiety. It might be some other physical or mental disorder or a neurogenic condition. I would suggest you to consult an ER Physician as it might help you further.
+
+[0.645] Q: I have some issues in my upper chest area. It seems to be a soreness in my lower back, left chest. It looks to be getting worse after my weight gain, and I feel a burning sensation and a pain on my left chest.
+        A: In my opinion, you should go for chest x-ray and rule out cause of chest pain and pain in lower back. You should go for hologram chest x-ray and rule out causes of muscular spasm in chest. If both these are normal than no need to worry much. So no need to worry about any cause in back region. Try following for better symptomatic relief. Avoid movements causing pain. Sit with support to back. Take 
+
+[0.596] Q: I m 25 and have had a kidney stone done which was very worrisome. I got a CT scan done which showed a stone that is nearly as big and has a diameter of about 20cm. My platelets are positive and are almost normal. I had a repeat blood test in April 2012 and everything seems fine. But as soon as I get
+        A: You may have some kind of cyst or stone. But you should go for ultrasonography and rule out kidney stones. It will give you exact picture. Then you should take treatment accordingly.
+
+[0.639] Q: i was given a course of anti-inflammatory and a steroid.i had a stroke last year and had a pacemaker. but since the day i have had pain in my right arm, numbness in the left hand, ache and pain in my arm. i had to sit for about 4 hours and have it checked for blood in my blood supply. could i be pre
+        A: As per your query, your doctor has suggested you for Pregnancy test.Pregabalin 500 mg along with ibuprofen for pain. If there is bleeding in your arm then you need to consult Physician and undergo blood test for pregnancy test.
+
+[0.733] Q: I am a 37 year old male who has been experiencing very low sperm count for the last 5 years. This is most likely caused by a decrease in the activity level of the testis, which has been causing the problem for me for the last 15 years. It may be a result of my hormonal imbalance. I have been unable 
+        A: The semen collection rate has gone up due to hormonal imbalance due to you. You have also experienced low sperm count due to decreased activity level. I would suggest you to take a sperm count test and if it is normal than you can conceive. Your other symptoms are of low sperm count, which is most likely due to hormonal imbalance. I would suggest you to consult your gynecologist for complete inves
+
+[0.586] Q: My 9yr old daughter is suffering from a chest infection after having an allergic reaction to a liquid containing the dog biscuit. We have not consulted a doctor for this since the time we are going to see her. We are now seeing a neurologist and she is having a lot of pain in her upper abdomen with 
+        A: She may be having allergic reaction to dog biscuits (fluconazole or fluconazole) or may be having a viral infection in which case she needs further investigation. She needs to take antihistamines (clindamycin or penicillin) or some antifungal medicines (diclofenac plus azithromycin). In both cases, better to consult ENT specialist and get done blood test for the diagnosis. Then she should take ant
+

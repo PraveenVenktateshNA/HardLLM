@@ -1,0 +1,23 @@
+{
+  "candidates": 90155,
+  "kept_for_training": 16000,
+  "rule": "drop the worse-matching 50% by question-answer similarity, then 16,000 at random from the rest",
+  "embedder": "sentence-transformers/all-MiniLM-L6-v2 (mean pooling, normalised)",
+  "similarity_cutoff": 0.5702,
+  "median_similarity": {
+    "all_synthetic": 0.5702,
+    "hardllm_arm_as_trained": 0.5705,
+    "hardllm_filtered_arm": 0.6555,
+    "real_test_pairs": 0.5816,
+    "synthetic_shuffled_no_fit": 0.1952
+  },
+  "share_below_cutoff": {
+    "real_test_pairs": 0.456,
+    "hardllm_arm_as_trained": 0.499
+  },
+  "answer_words_median": {
+    "hardllm_arm_as_trained": 70.0,
+    "hardllm_filtered_arm": 75.0
+  },
+  "seconds": 85.5
+}

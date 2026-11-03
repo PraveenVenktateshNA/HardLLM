@@ -1,0 +1,38 @@
+{
+  "model": "hardllm-filtered",
+  "answer_nll": 2.9457,
+  "answer_perplexity": 19.024,
+  "answer_tokens_scored": 104197,
+  "mmlu_medical": 0.2204,
+  "mmlu_by_subject": {
+    "anatomy": 0.2148,
+    "clinical_knowledge": 0.2113,
+    "college_biology": 0.2569,
+    "college_medicine": 0.2139,
+    "medical_genetics": 0.3,
+    "professional_medicine": 0.1875
+  },
+  "demo_answers": [
+    "You are having low B 12 level. It is due to deficiency of vitamin D3. So you should take vitamin D3 supplements along with calcium supplement. Vitamin D3 is required for proper absorption of vitamin D3. So avoid stress and tension, be relaxed and calm. Avoid hot and spicy food. Take multivitamin tablet like Tab.",
+    "The history of your father having gall bladder removal suggests that there may be some infection in the lungs or other organs. I would suggest you to consult a pulmonologist who can examine him and treat it accordingly.",
+    "The pain you are experiencing is due to the irritation of the skin by the fabric, which can be caused by friction between the fabric and your body. I would suggest you to consult an orthopedic surgeon for proper examination and treatment.",
+    "As per your query you are having severe chest pain with pressure sensation. You may need to consult pulmonologist for proper examination and investigations like ECG, 2d echo, Holder monitoring etc. If all these are normal then no need to worry about heart diseases.",
+    "As per your query you have pain in abdomen after having sex with him. It could be due to gastritis or some other cause like infection. You need to consult gastroenterologist for proper examination and treatment.",
+    "You are having anxiety disorder. So better to consult psychiatrist and get done counselling sessions. It will give you exact diagnosis. Then you should take treatment accordingly.",
+    "You may have some infection in your vagina or urinary tract. You should go for fine needle aspiration cytology (FNAC) or biopsy of that lump. Then you should take treatment accordingly.",
+    "The lump in your jaw is probably due to infection or some other cause. It can be due to any number of reasons such as trauma, infection, infection by bacteria etc. You should go for fine needle aspiration cytology and biopsy of that lump. If it is benign then no need to worry much.",
+    "Ovulation is a process that occurs when the ovary releases eggs into the uterus. The egg is released from the ovary to the uterus through the vagina. This process can be repeated several times during the menstrual cycle. If you are not pregnant then it will take about 2 weeks for your period to start again.",
+    "You are having chronic kidney disease. It can be due to many reasons like - Kidney stones, urinary tract infections, diabetes etc. So better to consult your doctor and get done clinical examination of abdomen and pelvis. If all these are normal then no need to worry about pregnancy.",
+    "As per your query you have undergone surgery for appendicitis. You are having infection in the wound which is causing swelling and redness. It can be treated with antibiotics. If there is no improvement then you need to go for surgical excision.",
+    "You are suffering from TMJD. It is due to compression of the TMJ. So you need to consult orthopedic surgeon and get done clinical examination of TMJ. If needed MRI of TMJ. Then start appropriate treatment accordingly.",
+    "You are having vaginal discharge due to sexual intercourse. It can be due to many reasons like infection, hormonal imbalance etc. So better to consult gynecologist and get done clinical examination of vagina and PFT (Pulmonary Function Test). If all these are normal then no need to worry about pregnancy.",
+    "You are having viral gastroenteritis. It can be due to many reasons like viral hepatitis, bacterial infection or viral infection. So get done clinical examination of abdomen and PFT (Pulmonary Function Test). If all these are normal then no need to worry about viral gastroenteritis.",
+    "The report of your blood test indicates that you have a viral infection, which can be transmitted through the blood. This is called as viral hepatitis B or C. It is not contagious and does not cause any symptoms. However, it may cause some symptoms such as fever, abdominal pain, vomiting, diarrhea, fatigue, weakness, dizziness, nausea, vomiting, loss of appetite, weight gain, muscle cramps, etc. If these symptoms are present then you should consult an infectious disease specialist for further evaluation.",
+    "You are having irregular periods. It can be due to many reasons like hormonal imbalance, stress, anxiety etc. So better to consult gynecologist and get done clinical examination of abdomen and pelvis. If all these are normal then no need to worry about pregnancy.",
+    "You are having chronic cough, which is due to smoking. So better to consult pulmonologist and get done Clinical examination of respiratory system (PFT) Chest x-ray (CT scan). PFT will not only diagnose lung disease but also rule out other causes of cough. So better to first diagnose yourself and then start appropriate treatment accordingly.",
+    "You are having abdominal pain with tender abdomen. It is due to gastritis. So better to consult gastroenterologist and get done clinical examination of abdomen. If all these are normal than no need to worry about gastritis.",
+    "The symptoms you are describing could be related to allergic reactions of the bee sting. It is not uncommon for people to have such reactions after being bitten by bees. However, if you do not take any medication or treatment, then there is no need to worry about this.",
+    "The PFO (Pulmonary Function Test) is an important test which can be done only after pregnancy. It will tell you about your chances of having a baby. If it is positive then there is no need to worry about any complications. You should consult a gynecologist who will examine her and give you some advice on how to treat the problem."
+  ],
+  "minutes": 1.6
+}
